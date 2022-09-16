@@ -95,7 +95,7 @@ bool Buffer_find(const char* str)
     {
         return false;
     }
-    uint8_t wIndex = tail+1;
+    //uint8_t wIndex = tail+1;
     uint8_t rIndex = head;
     uint8_t sIndex = 0;
     

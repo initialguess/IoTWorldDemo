@@ -1,4 +1,4 @@
-<config configName="default" projectName="attiny1627_Capstone" configVersion="1.1" device="ATtiny1627" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.4.8">
+<config configName="default" projectName="attiny1627_Capstone" configVersion="1.1" device="ATtiny1627" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.4.11">
    <usedPackages class="java.util.ArrayList">
       <package packageName="@mchp-mcc/avr-8bit" version="4.4.0" contentType="MELODY">
          <modules class="java.util.ArrayList"/>

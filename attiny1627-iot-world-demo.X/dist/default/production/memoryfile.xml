@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="dist/default/production/attiny1627_State_Machine.X.production.elf">                 
+  <executable name="dist/default/production/attiny1627-iot-world-demo.X.production.elf">                 
     <memory name="program">              
       <units>bytes</units>                 
       <length>16384</length>                 
-      <used>12575</used>                     
-      <free>3809</free>                     
+      <used>12507</used>                     
+      <free>3877</free>                     
     </memory>                              
     <memory name="data">                 
       <units>bytes</units>                 
       <length>2048</length>                 
-      <used>742</used>                     
-      <free>1306</free>                     
+      <used>740</used>                     
+      <free>1308</free>                     
     </memory>                              
   </executable>                            
 </project>                                 

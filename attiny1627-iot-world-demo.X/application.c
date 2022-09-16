@@ -52,11 +52,11 @@ void LR2_reset(void) {
     
     /* Reset the RN2903 */
     LR2_RST_SetHigh();
-    _delay_ms(100);         
+    _delay_ms(100); 
     LR2_RST_SetLow();
     _delay_ms(300);
     LR2_RST_SetHigh();
-    _delay_ms(100);         
+    _delay_ms(100);  
     LR2_RTS_SetHigh();
     
     uint8_t done = 0;
@@ -411,13 +411,11 @@ void formatPayload(char *str, sensor_data_t *data) {
     str[7] = hex[((data->press >> 8) & 0x0F)];
     str[8] = hex[((data->press >> 4) & 0x0F)];
     str[9] = hex[data->press & 0x0F];
-    str[10] = hex[((data->temp_soil >> 4) & 0x0F)];
-    str[11] = hex[data->temp_soil & 0x0F];
-    str[12] = hex[((data->battery >> 4) & 0x0F)];
-    str[13] = hex[data->battery & 0x0F];
-    str[14] = '\r';
-    str[15] = '\n';
-    str[16] = '\0';
+    str[10] = hex[((data->battery >> 4) & 0x0F)];
+    str[11] = hex[data->battery & 0x0F];
+    str[12] = '\r';
+    str[13] = '\n';
+    str[14] = '\0';
 }
 //Transmits a formatted payload string on port 1 using confirmed uplink
 void LR2_tx_cnf(char *str) {
