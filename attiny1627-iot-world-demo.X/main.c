@@ -46,7 +46,6 @@ void Init_PIT(void);
     
 int main(void)
 {
-    
     //Initialize the ATtiny1627
     SYSTEM_Initialize();
     

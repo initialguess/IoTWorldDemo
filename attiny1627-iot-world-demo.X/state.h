@@ -23,18 +23,6 @@ extern "C" {
 
 void BUTTON_releaseCallback(void);
 void BUTTON_pressCallback(void);  
-void setNextStateFlag(void);
-void clearNextStateFlag(void);
-bool getNextStateFlag(void);
-uint8_t getState();
-void setState(uint8_t newState);
-void advanceState();
-void stateRESET();
-void stateInfo();
-void stateJOIN();
-void stateGET_DATA();
-void stateTRANSMIT();
-void stateRECEIVE();
 uint16_t getNumTx();
 void stateMachine();
 

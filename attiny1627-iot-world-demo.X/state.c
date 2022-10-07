@@ -27,7 +27,7 @@ uint32_t lastsecs = 0;          // reference to determine total elapsed time in 
 uint16_t numTx = 0;
 
 //LR2 payload for TTN - String of hex characters representing sensor data
-char payload[15];
+char payload[17];
 
 //Data structure: measurements from Weather Click and moisture sensor
 static sensor_data_t data;

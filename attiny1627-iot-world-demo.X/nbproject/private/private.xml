@@ -3,20 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/application.c</file>
             <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/state.c</file>
             <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/state.h</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/main.c</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/application.c</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/application.h</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/LR2_tx_buff.c</file>
-=======
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/TERM_tx_buff.c</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/application.c</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/state.c</file>
             <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/mcc_generated_files/system/pins.h</file>
             <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/main.c</file>
->>>>>>> 1c646afd4b4fb92d9d6f14c316f6c8d58008de60
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/LR2_tx_buff.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/application.h</file>
         </group>
     </open-files>
 </project-private>

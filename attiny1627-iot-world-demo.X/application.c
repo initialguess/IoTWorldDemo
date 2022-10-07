@@ -366,6 +366,7 @@ void getSensorData(sensor_data_t *data)
     data->humid = (uint8_t) BME280_getHumidity();
     data->moist = getMoistureMeasurement();
     data->battery = getBatteryLevel();
+    data->numTx = getNumTx() + 1;
     
 #ifdef DEBUG
     printSensorData(data); //To compare and demonstrate successful transmission
@@ -387,12 +388,13 @@ void printSensorData(sensor_data_t *data)
     printf("Battery Level: %u%% \r\n\n", data->battery);
     printf("\nJSON Format\r\n");
     printf("-----------------------------------------------------------------------\n");
-    printf("Payload: { air_temp: %i, battery: %u, humidity: %u, moisture: %u, pressure: %u\r\n\n}", 
+    printf("Payload: { air_temp: %i, battery: %u, humidity: %u, moisture: %u, pressure: %u, numTx: %u\r\n\n}", 
             data->temp_air,
             data->battery,
             data->humid, 
             data->moist, 
-            data->press
+            data->press,
+            data->numTx
             );
 }
 
@@ -417,9 +419,11 @@ void formatPayload(char *str, sensor_data_t *data) {
     str[9] = hex[data->press & 0x0F];
     str[10] = hex[((data->battery >> 4) & 0x0F)];
     str[11] = hex[data->battery & 0x0F];
-    str[12] = '\r';
-    str[13] = '\n';
-    str[14] = '\0';
+    str[12] = hex[((data->numTx >> 4) & 0x0F)];
+    str[13] = hex[data->numTx & 0x0F];
+    str[14] = '\r';
+    str[15] = '\n';
+    str[16] = '\0';
 }
 //Transmits a formatted payload string on port 1 using confirmed uplink
 void LR2_tx_cnf(char *str) {
