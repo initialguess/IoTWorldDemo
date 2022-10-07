@@ -40,7 +40,11 @@
 */
 
 //LR2 payload for TTN - String of hex characters representing sensor data
+<<<<<<< HEAD
 char payload[15];
+=======
+//char payload[13];
+>>>>>>> 1c646afd4b4fb92d9d6f14c316f6c8d58008de60
 
 void PORT_init(void);
 void EVSYS_init(void);
