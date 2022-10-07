@@ -51,6 +51,15 @@ void LR2_reset(void) {
 #endif
     
     /* Reset the RN2903 */
+<<<<<<< HEAD
+    LR2_RST_SetHigh();  //PB6
+    _delay_ms(100);         
+    LR2_RST_SetLow();
+    _delay_ms(300);
+    LR2_RST_SetHigh();
+    _delay_ms(100);         
+    LR2_RTS_SetHigh();  //PC3
+=======
     LR2_RST_SetHigh();
     _delay_ms(100); 
     LR2_RST_SetLow();
@@ -58,6 +67,7 @@ void LR2_reset(void) {
     LR2_RST_SetHigh();
     _delay_ms(100);  
     LR2_RTS_SetHigh();
+>>>>>>> 1c646afd4b4fb92d9d6f14c316f6c8d58008de60
     
     uint8_t done = 0;
     char data;
@@ -358,7 +368,6 @@ void getSensorData(sensor_data_t *data)
     data->press = BME280_getPressure();
     data->humid = (uint8_t) BME280_getHumidity();
     data->moist = getMoistureMeasurement();
-    data->temp_soil = getSoilTemp();
     data->battery = getBatteryLevel();
     
 #ifdef DEBUG
@@ -378,17 +387,15 @@ void printSensorData(sensor_data_t *data)
     printf("Moisture: %u%% \r\n", data->moist);
     printf("Pressure: %u hPa\r\n", data->press);
     printf("Air Temperature: %i C \r\n", data->temp_air);
-    printf("Soil Temperature: %i C \r\n", data->temp_soil);
     printf("Battery Level: %u%% \r\n\n", data->battery);
     printf("\nJSON Format\r\n");
     printf("-----------------------------------------------------------------------\n");
-    printf("Payload: { air_temp: %i, battery: %u, humidity: %u, moisture: %u, pressure: %u, soil_temp: %i\r\n\n}", 
+    printf("Payload: { air_temp: %i, battery: %u, humidity: %u, moisture: %u, pressure: %u\r\n\n}", 
             data->temp_air,
             data->battery,
             data->humid, 
             data->moist, 
-            data->press, 
-            data->temp_soil
+            data->press
             );
 }
 
@@ -429,7 +436,7 @@ void LR2_tx_cnf(char *str) {
     
     //Send Transmission to LR2 UART Tx
     LR2_tx_buff_Push_Str("mac tx cnf 42 ");
-    LR2_tx_buff_Push_Str(str);
+    LR2_tx_buff_Push_Str(str);    
 }
 
 //Transmits a formatted payload string on port 1 using unconfirmed uplink
@@ -460,5 +467,4 @@ void sendAndReceiveBuffers() {
             LR2_Write(LR2_tx_buff_Pop());
         }
 }
-
 
