@@ -54,7 +54,7 @@ ISR(TCB1_INT_vect)
 }
 
 ISR(RTC_PIT_vect)   {
-    //secs++;
+    secs++;
     
     RTC.PITINTFLAGS |= RTC_PI_bm;
 }
@@ -138,6 +138,7 @@ void stateMachine()
         //TODO: parse LR2 messages, if mac_tx_ok, sleep, otherwise handle error
         case SLEEP:
             //After 3 minutes, return to read and transmit next measurement
+            //secs = (millis / 1000); 
             if(secs == 180 ) {
                 state = SEND_DATA;
                 //Stop the timer

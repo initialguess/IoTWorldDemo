@@ -51,7 +51,6 @@ void LR2_reset(void) {
 #endif
     
     /* Reset the RN2903 */
-<<<<<<< HEAD
     LR2_RST_SetHigh();  //PB6
     _delay_ms(100);         
     LR2_RST_SetLow();
@@ -59,7 +58,6 @@ void LR2_reset(void) {
     LR2_RST_SetHigh();
     _delay_ms(100);         
     LR2_RTS_SetHigh();  //PC3
-=======
     LR2_RST_SetHigh();
     _delay_ms(100); 
     LR2_RST_SetLow();
@@ -67,7 +65,6 @@ void LR2_reset(void) {
     LR2_RST_SetHigh();
     _delay_ms(100);  
     LR2_RTS_SetHigh();
->>>>>>> 1c646afd4b4fb92d9d6f14c316f6c8d58008de60
     
     uint8_t done = 0;
     char data;
