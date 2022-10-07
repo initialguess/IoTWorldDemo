@@ -11,7 +11,7 @@
 */
 
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+Â© [2022] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -40,7 +40,11 @@
 */
 
 //LR2 payload for TTN - String of hex characters representing sensor data
+<<<<<<< HEAD
+char payload[15];
+=======
 //char payload[13];
+>>>>>>> 1c646afd4b4fb92d9d6f14c316f6c8d58008de60
 
 void PORT_init(void);
 void EVSYS_init(void);
@@ -60,7 +64,7 @@ int main(void)
     Init_PIT();
     
     sei();
-    
+
     //Enable the Rx and Tx for Print Utility
     PrintUtility_enable();
 
@@ -69,18 +73,13 @@ int main(void)
     
     //Initialize the Weather Click
     WeatherClick_initialize();
-
+    
+    
     while(1)
-    {
-        
+    { 
         stateMachine();
-        //
-        //sendAndReceiveBuffers();
-        
-        //Go to Sleep
-        asm ("SLEEP");
-        asm ("NOP");
     }
+    return 0;
 }
 
 void PORT_init(void)
@@ -97,17 +96,24 @@ void PORT_init(void)
 void EVSYS_init(void)
 {
     EVSYS.CHANNEL3 = EVSYS_CHANNEL3_PORTC_PIN4_gc;
-    EVSYS.USERTCB0CAPT = EVSYS_USER_CHANNEL3_gc;
+    EVSYS.USERTCB1CAPT = EVSYS_USER_CHANNEL3_gc;
 }
 
 void TCB0_init(void)
 {
-    TCB0.CCMP = TOP_VALUE;              //In single shot so CCMP stores TOP 
-    TCB0.CTRLB = TCB_CNTMODE_SINGLE_gc;
-    TCB0.EVCTRL = TCB_CAPTEI_bm | TCB_EDGE_bm;  // Input capture event, 
-    TCB0.CTRLA = TCB_CLKSEL_0_bm | TCB_ENABLE_bm;   // CLK_PER and TCB Enable
-    TCB0.CNT = TOP_VALUE;
-    TCB0.INTCTRL = TCB_CAPT_bm; //Capture Interrupt Enable
+    //For 1 ms Timer
+    TCB0.CCMP = 10000;  // 10MHz / 1kHz = 20000
+    TCB0.CTRLB = TCB_CCMPEN_bm; // ENABLE WAVEFORM OUTPUT (SHOULD BE PA5)
+    TCB0.INTCTRL = TCB_CAPT_bm; // ENABLE CAPTURE INTERRUPT
+    TCB0.CTRLA = TCB_CLKSEL_DIV2_gc | TCB_ENABLE_bm; // START TIMER
+    
+    //For button debouncing
+    TCB1.CCMP = TOP_VALUE;              //In single shot so CCMP stores TOP 
+    TCB1.CTRLB = TCB_CNTMODE_SINGLE_gc;
+    TCB1.EVCTRL = TCB_CAPTEI_bm | TCB_EDGE_bm;  // Input capture event, 
+    TCB1.CTRLA = TCB_CLKSEL_0_bm | TCB_ENABLE_bm;   // CLK_PER and TCB Enable
+    TCB1.CNT = TOP_VALUE;
+    TCB1.INTCTRL = TCB_CAPT_bm; //Capture Interrupt Enable
 }
 
 void Init_PIT(void) {
