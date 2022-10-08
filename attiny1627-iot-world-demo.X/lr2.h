@@ -76,6 +76,21 @@ extern "C" {
 
 /* LR2 RX Buffer Size */
 #define RX_BUFFER_SIZE               300
+    
+void LR2_reset(void);
+void LR2_sendStringCmd(char *);
+void LR2_sendAppSKey(char *);
+void LR2_sendNwkSKey(char *);
+void LR2_recvRsp(void);
+void LR2_config_abp(void);
+void LR2_config_otaa(void);
+void LR2_join_abp(void);
+void LR2_join_otaa(void);
+void LR2_config(void);
+void LR2_join(void);    
+void LR2_tx_cnf(char *);
+void LR2_tx_uncnf(char *);
+
 
 #ifdef	__cplusplus
 }

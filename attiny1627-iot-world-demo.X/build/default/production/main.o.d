@@ -41,8 +41,7 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
  mcc_generated_files/system/../vref/../system/utils/compiler.h \
  mcc_generated_files/system/../system/interrupt.h \
  mcc_generated_files/system/../system/../system/utils/atomic.h state.h \
- application.h bme280.h TWI.h lr2.h LR2_tx_buff.h TERM_tx_buff.h \
- printUtility.h
+ bme280.h TWI.h lr2.h LR2_ringBuffer.h TERM_ringBuffer.h
 
 mcc_generated_files/system/system.h:
 
@@ -130,16 +129,12 @@ mcc_generated_files/system/../system/../system/utils/atomic.h:
 
 state.h:
 
-application.h:
-
 bme280.h:
 
 TWI.h:
 
 lr2.h:
 
-LR2_tx_buff.h:
+LR2_ringBuffer.h:
 
-TERM_tx_buff.h:
-
-printUtility.h:
+TERM_ringBuffer.h:

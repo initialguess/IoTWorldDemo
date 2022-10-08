@@ -1,5 +1,5 @@
-#ifndef LR2_tx_buff_H
-	#define LR2_tx_buff_H
+#ifndef LR2_ringBuffer_H
+	#define LR2_ringBuffer_H
 
     #include "mcc_generated_files/system/system.h"
 	
@@ -10,3 +10,4 @@
     uint8_t LR2_tx_buff_Count();
     void LR2_buffer_reset();
 #endif
+

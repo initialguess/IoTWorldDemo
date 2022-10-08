@@ -1,6 +1,6 @@
-build/default/production/LR2_tx_buff.o.d \
- build/default/production/LR2_tx_buff.o: LR2_tx_buff.c LR2_tx_buff.h \
- mcc_generated_files/system/system.h \
+build/default/production/TERM_ringBuffer.o.d \
+ build/default/production/TERM_ringBuffer.o: TERM_ringBuffer.c \
+ TERM_ringBuffer.h mcc_generated_files/system/system.h \
  mcc_generated_files/system/../system/utils/compiler.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\sfr_defs.h \
@@ -41,12 +41,9 @@ build/default/production/LR2_tx_buff.o.d \
  mcc_generated_files/system/../vref/vref.h \
  mcc_generated_files/system/../vref/../system/utils/compiler.h \
  mcc_generated_files/system/../system/interrupt.h \
- mcc_generated_files/system/../system/../system/utils/atomic.h \
- c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay.h \
- c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\xc8\v2.32\avr\avr\include\math.h
+ mcc_generated_files/system/../system/../system/utils/atomic.h lr2.h
 
-LR2_tx_buff.h:
+TERM_ringBuffer.h:
 
 mcc_generated_files/system/system.h:
 
@@ -132,8 +129,4 @@ mcc_generated_files/system/../system/interrupt.h:
 
 mcc_generated_files/system/../system/../system/utils/atomic.h:
 
-c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay.h:
-
-c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay_basic.h:
-
-c:\program\ files\microchip\xc8\v2.32\avr\avr\include\math.h:
+lr2.h:

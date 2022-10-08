@@ -17,8 +17,8 @@ extern "C" {
 #include "bme280.h"
 #include "TWI.h"    
 #include "lr2.h"
-#include "LR2_tx_buff.h"
-#include "TERM_tx_buff.h"
+#include "LR2_ringBuffer.h"
+#include "TERM_ringBuffer.h"
 #include "printUtility.h"
 #include "state.h"
 

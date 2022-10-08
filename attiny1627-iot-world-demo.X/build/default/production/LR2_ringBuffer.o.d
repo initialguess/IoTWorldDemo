@@ -1,6 +1,6 @@
-build/default/production/application.o.d \
- build/default/production/application.o: application.c \
- mcc_generated_files/system/system.h \
+build/default/production/LR2_ringBuffer.o.d \
+ build/default/production/LR2_ringBuffer.o: LR2_ringBuffer.c \
+ LR2_ringBuffer.h mcc_generated_files/system/system.h \
  mcc_generated_files/system/../system/utils/compiler.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\io.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\sfr_defs.h \
@@ -44,9 +44,9 @@ build/default/production/application.o.d \
  mcc_generated_files/system/../system/../system/utils/atomic.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\xc8\v2.32\avr\avr\include\math.h \
- application.h bme280.h TWI.h lr2.h LR2_tx_buff.h TERM_tx_buff.h \
- printUtility.h state.h
+ c:\program\ files\microchip\xc8\v2.32\avr\avr\include\math.h
+
+LR2_ringBuffer.h:
 
 mcc_generated_files/system/system.h:
 
@@ -137,19 +137,3 @@ c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay.h:
 c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay_basic.h:
 
 c:\program\ files\microchip\xc8\v2.32\avr\avr\include\math.h:
-
-application.h:
-
-bme280.h:
-
-TWI.h:
-
-lr2.h:
-
-LR2_tx_buff.h:
-
-TERM_tx_buff.h:
-
-printUtility.h:
-
-state.h:

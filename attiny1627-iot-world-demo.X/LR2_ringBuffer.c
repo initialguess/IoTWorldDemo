@@ -1,4 +1,4 @@
-#include "LR2_tx_buff.h"
+#include "LR2_ringBuffer.h"
 #include <util/delay.h>
 
 static char Buffer[256];

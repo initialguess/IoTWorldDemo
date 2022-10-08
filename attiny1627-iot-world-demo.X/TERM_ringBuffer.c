@@ -1,4 +1,4 @@
-#include "TERM_tx_buff.h"
+#include "TERM_ringBuffer.h"
 #include "lr2.h"
 #include <stdbool.h>
 
@@ -80,6 +80,28 @@ void TERM_sendBufferedString(void)
         while (!TERM_IsTxReady());
         
         TERM_sendByte(Buffer[index]);
+        index++;
+    }
+    
+    //Wait for completion of UART
+    while (TERM_IsTxDone());
+}
+
+void TERM_sendStringRaw(const char* text)
+{  
+    if (text[0] == '\0')
+        return;
+    
+    uint8_t index = 0;
+    
+    //Clear USART Done Flag
+    USART0.STATUS |= USART_TXCIF_bm;
+    
+    while ((text[index] != '\0') && (index < 255))
+    {
+        while (!TERM_IsTxReady());
+        
+        TERM_sendByte(text[index]);
         index++;
     }
     
