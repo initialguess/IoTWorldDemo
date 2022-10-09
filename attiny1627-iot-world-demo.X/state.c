@@ -316,9 +316,9 @@ void stateMachine()
         //TODO: parse LR2 messages, if mac_tx_ok, sleep, otherwise handle error
         case SLEEP:
             // Put the RN2903 to sleep to save power for 120 sec
-            if(secs == 30)   {
-                LR2_tx_buff_Push_Str("sys sleep 120000\r\n");
-            }
+//            if(secs == 30)   {
+//                LR2_tx_buff_Push_Str("sys sleep 120000\r\n");
+//            }
             //After 3 minutes, return to read and transmit next measurement
             //secs = (millis / 1000); 
             if(secs == 180 ) {
