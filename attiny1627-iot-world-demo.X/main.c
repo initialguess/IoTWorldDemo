@@ -57,9 +57,6 @@ int main(void)
     
     sei();
 
-    //Enable the Rx and Tx for Print Utility
-    PrintUtility_enable();
-
     //Initialize TWI Host Driver
     TWI_initHost();
     

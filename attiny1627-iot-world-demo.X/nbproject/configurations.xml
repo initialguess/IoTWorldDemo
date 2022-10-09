@@ -98,6 +98,7 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
       <itemPath>attiny1627_Capstone.mc3</itemPath>
+      <itemPath>attiny1627-iot-world-demo.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

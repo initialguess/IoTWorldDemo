@@ -9,7 +9,6 @@
 #include "lr2.h"
 #include "LR2_ringBuffer.h"
 #include "TERM_ringBuffer.h"
-#include "printUtility.h"
 #include <util/delay.h>
 
 //Enable print statements for Rx and Tx

@@ -89,11 +89,6 @@ void WeatherClick_initialize(void) {
     weather_initialized = 1;
 }
 
-void PrintUtility_enable(void) {
-    TERM_ReceiveEnable();
-    TERM_TransmitEnable();
-}
-
 void WeatherClick_readSensors(void) {
     if (DEFAULT_SENSOR_MODE == BME280_FORCED_MODE) {
         BME280_startForcedSensing();
@@ -156,11 +151,8 @@ uint8_t getSoilTemp()   {
 
 uint8_t getBatteryLevel()   {
     //For Testing Purposes loses 1% every 10 Tx's TODO: create better calculation
-    uint16_t level = 100 - (getNumTx() / 10); 
+    uint16_t level = 100 - (numTx / 10); 
     return level;
-}
-uint16_t getNumTx() {
-    return numTx;
 }
 
 //Gets Data from the Weather Click and Soil Moisture Sensor
@@ -315,6 +307,7 @@ void stateMachine()
             }
             //Advance Transmission Count
             numTx++;
+            
             //Start the Timer
             RTC.CTRLA |= RTC_RTCEN_bm;
             state = SLEEP;
@@ -322,6 +315,10 @@ void stateMachine()
         //Wait for mac_tx_ok, then go to sleep/ enter low power mode 
         //TODO: parse LR2 messages, if mac_tx_ok, sleep, otherwise handle error
         case SLEEP:
+            // Put the RN2903 to sleep to save power for 120 sec
+            if(secs == 30)   {
+                LR2_tx_buff_Push_Str("sys sleep 120000\r\n");
+            }
             //After 3 minutes, return to read and transmit next measurement
             //secs = (millis / 1000); 
             if(secs == 180 ) {

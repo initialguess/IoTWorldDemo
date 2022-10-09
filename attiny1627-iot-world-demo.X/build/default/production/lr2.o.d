@@ -41,7 +41,7 @@ build/default/production/lr2.o.d build/default/production/lr2.o: lr2.c \
  mcc_generated_files/system/../vref/../system/utils/compiler.h \
  mcc_generated_files/system/../system/interrupt.h \
  mcc_generated_files/system/../system/../system/utils/atomic.h lr2.h \
- LR2_ringBuffer.h TERM_ringBuffer.h printUtility.h \
+ LR2_ringBuffer.h TERM_ringBuffer.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\math.h
@@ -135,8 +135,6 @@ lr2.h:
 LR2_ringBuffer.h:
 
 TERM_ringBuffer.h:
-
-printUtility.h:
 
 c:\program\ files\microchip\xc8\v2.32\avr\avr\include\util\delay.h:
 
