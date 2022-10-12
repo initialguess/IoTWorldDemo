@@ -7,7 +7,7 @@ build/default/production/LR2_ringBuffer.o.d \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\inttypes.h \
  c:\program\ files\microchip\xc8\v2.32\avr\lib\gcc\avr\5.4.0\include\stdint.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\stdint.h \
- C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/include/avr/iotn1627.h \
+ C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/include/avr/iotn3226.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\portpins.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\version.h \
@@ -62,7 +62,7 @@ c:\program\ files\microchip\xc8\v2.32\avr\lib\gcc\avr\5.4.0\include\stdint.h:
 
 c:\program\ files\microchip\xc8\v2.32\avr\avr\include\stdint.h:
 
-C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/include/avr/iotn1627.h:
+C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/include/avr/iotn3226.h:
 
 c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\portpins.h:
 
