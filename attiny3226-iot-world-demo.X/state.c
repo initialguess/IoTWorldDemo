@@ -26,12 +26,18 @@ typedef enum    {
     TTN_JOIN_REQUEST,
     TTN_JOINED,
     SEND_DATA,
-    SLEEP
+    SLEEP,
+    WAIT_FOR_BUTTON,        
+    TESTS
 } STATE;
+
+// For now in Test Phase, change to TTN_NOT_JOINED for normal operation
+// After each test, State returns to WAIT_FOR_BUTTON, then advances to next TEST on a button press
+static STATE state = TTN_NOT_JOINED;
+uint16_t numTest = 0;
 
 bool weather_initialized = 0;
 bool label_initial = false;
-static STATE state = TTN_NOT_JOINED;
 static volatile uint16_t event_flags = 0;
 volatile uint32_t millis = 0;   // counter for elapsed milliseconds
 uint32_t secs = 0;              // counter for elapsed seconds
@@ -54,7 +60,7 @@ ISR(TCB0_INT_vect)  {
 
 ISR(TCB1_INT_vect)
 {
-    if (PORTC.IN & PIN4_bm)
+    if (PORTC.IN & PIN1_bm)
     {
         BUTTON_releaseCallback();
     }
@@ -241,14 +247,14 @@ void sendAndReceiveBuffers() {
 
 void BUTTON_releaseCallback(void)
 {
-    PORTB.OUTSET |= PIN7_bm;
+    PORTC.OUTSET |= PIN0_bm;
     
     event_flags |= UI_BUTTON_FLAG;
 }
 
 void BUTTON_pressCallback(void)
 {
-    PORTB.OUTSET &= ~PIN7_bm;   
+    PORTC.OUTSET &= ~PIN0_bm;   
 }
 
 
@@ -280,6 +286,12 @@ void stateMachine()
                 state = SEND_DATA;
                 break;
                 
+            case WAIT_FOR_BUTTON:
+                state = TESTS;
+                numTest++;
+                break;
+                
+               
             default:
                 break;
         }
@@ -338,9 +350,40 @@ void stateMachine()
             //Remove when not debugging
             sendAndReceiveBuffers();
             break;
-        default:
+            
+        case WAIT_FOR_BUTTON:
             break;
             
+        case TESTS:
+            switch(numTest) {
+                case 1:
+                    printf("Begin Test %d\r\n", numTest);
+                    state = WAIT_FOR_BUTTON;
+                    _delay_ms(100);
+                    break;
+                case 2:
+                    printf("Test %d BME280", numTest);
+                    getSensorData(&data);
+                    state = WAIT_FOR_BUTTON;
+                    break;
+                case 3:
+                    printf("Test %d LoRa", numTest);
+                    /* Reset the RN2903 */
+                    LR2_RST_SetHigh();
+                    _delay_ms(100);         
+                    LR2_RST_SetLow();
+                    _delay_ms(300);
+                    LR2_RST_SetHigh();
+                    _delay_ms(100);         
+                    LR2_RTS_SetHigh(); 
+                    _delay_ms(1000);
+                    state = WAIT_FOR_BUTTON;
+                    break;
+                default:
+                    break;
+            }
+        default:
+            break;
     }
 
 }

@@ -43,6 +43,7 @@ static void (*PC1_InterruptHandler)(void);
 static void (*PA3_InterruptHandler)(void);
 static void (*PB5_InterruptHandler)(void);
 static void (*PC0_InterruptHandler)(void);
+static void (*PC2_InterruptHandler)(void);
 static void (*PC3_InterruptHandler)(void);
 
 void PIN_MANAGER_Initialize()
@@ -50,7 +51,7 @@ void PIN_MANAGER_Initialize()
   /* DIR Registers Initialization */
     PORTA.DIR = 0xA;
     PORTB.DIR = 0x24;
-    PORTC.DIR = 0x9;
+    PORTC.DIR = 0xD;
 
   /* OUT Registers Initialization */
     PORTA.OUT = 0x0;
@@ -101,6 +102,7 @@ void PIN_MANAGER_Initialize()
     PA3_SetInterruptHandler(PA3_DefaultInterruptHandler);
     PB5_SetInterruptHandler(PB5_DefaultInterruptHandler);
     PC0_SetInterruptHandler(PC0_DefaultInterruptHandler);
+    PC2_SetInterruptHandler(PC2_DefaultInterruptHandler);
     PC3_SetInterruptHandler(PC3_DefaultInterruptHandler);
 }
 
@@ -222,6 +224,19 @@ void PC0_DefaultInterruptHandler(void)
     // or set custom function using PC0_SetInterruptHandler()
 }
 /**
+  Allows selecting an interrupt handler for PC2 at application runtime
+*/
+void PC2_SetInterruptHandler(void (* interruptHandler)(void)) 
+{
+    PC2_InterruptHandler = interruptHandler;
+}
+
+void PC2_DefaultInterruptHandler(void)
+{
+    // add your PC2 interrupt custom code
+    // or set custom function using PC2_SetInterruptHandler()
+}
+/**
   Allows selecting an interrupt handler for PC3 at application runtime
 */
 void PC3_SetInterruptHandler(void (* interruptHandler)(void)) 
@@ -286,6 +301,10 @@ ISR(PORTC_PORT_vect)
     if(VPORTC.INTFLAGS & PORT_INT0_bm)
     {
        PC0_InterruptHandler(); 
+    }
+    if(VPORTC.INTFLAGS & PORT_INT2_bm)
+    {
+       PC2_InterruptHandler(); 
     }
     if(VPORTC.INTFLAGS & PORT_INT3_bm)
     {

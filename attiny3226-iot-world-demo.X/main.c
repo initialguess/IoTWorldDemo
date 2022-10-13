@@ -41,7 +41,7 @@
 
 void PORT_init(void);
 void EVSYS_init(void);
-void TCB0_init(void);
+void TCB_init(void);
 void Init_PIT(void);
     
 int main(void)
@@ -52,7 +52,7 @@ int main(void)
     //Baremetal Setup for State Machine
     PORT_init();
     EVSYS_init();
-    TCB0_init();
+    TCB_init();
     Init_PIT();
     
     sei();
@@ -62,11 +62,10 @@ int main(void)
     
     //Initialize the Weather Click
     WeatherClick_initialize();
-    
-    
+     
     while(1)
     { 
-        stateMachine();
+        stateMachine();  
     }
     return 0;
 }
@@ -74,12 +73,12 @@ int main(void)
 void PORT_init(void)
 {
     //Set Up LED
-    PORTB.DIR |= PIN7_bm;
-    PORTB.OUT |= PIN7_bm;
+    PORTC.DIR |= PIN0_bm;
+    PORTC.OUT |= PIN0_bm;
     
     //Set Up Switch 0
-    PORTC.DIR &= ~(PIN4_bm);
-    PORTC.PIN4CTRL |= PORT_PULLUPEN_bm;
+    PORTC.DIR &= ~(PIN1_bm);
+    PORTC.PIN1CTRL |= PORT_PULLUPEN_bm;
 }
 
 void EVSYS_init(void)
@@ -88,7 +87,7 @@ void EVSYS_init(void)
     EVSYS.USERTCB1CAPT = EVSYS_USER_CHANNEL3_gc;
 }
 
-void TCB0_init(void)
+void TCB_init(void)
 {
     //For 1 ms Timer
     TCB0.CCMP = 10000;  // 10MHz / 1kHz = 20000

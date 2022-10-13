@@ -28,39 +28,38 @@ void LR2_reset(void) {
 #endif
     
     /* Reset the RN2903 */
-    LR2_RST_SetHigh();  //PB6
+    LR2_PWR_SetLow();
+    _delay_ms(100);
+    
+    LR2_RST_SetHigh();
     _delay_ms(100);         
     LR2_RST_SetLow();
     _delay_ms(300);
     LR2_RST_SetHigh();
     _delay_ms(100);         
-    LR2_RTS_SetHigh();  //PC3
-    LR2_RST_SetHigh();
-    _delay_ms(100); 
-    LR2_RST_SetLow();
-    _delay_ms(300);
-    LR2_RST_SetHigh();
-    _delay_ms(100);  
-    LR2_RTS_SetHigh();
+    LR2_RTS_SetHigh(); 
+
     
-    uint8_t done = 0;
-    char data;
-    
-    while(!done)
-    {   
-        if(LR2__IsRxReady()) {
-            TERM_tx_buff_Push(LR2_Read());
-        }
-        //if(TERM_tx_buff_Count() && TERM_IsTxReady()) {
-        if(TERM_IsTxReady()) {
-            data = TERM_tx_buff_Pop();
-            TERM_sendByte(data);
-            if(data== '\n') {
-                done = 1;
-            }
-        } 
-    }
+//    uint8_t done = 0;
+//    char data;
+//    
+//    while(!done)
+//    {   
+//        if(LR2__IsRxReady()) {
+//            TERM_tx_buff_Push(LR2_Read());
+//        }
+//        //if(TERM_tx_buff_Count() && TERM_IsTxReady()) {
+//        if(TERM_IsTxReady()) {
+//            data = TERM_tx_buff_Pop();
+//            TERM_sendByte(data);
+//            if(data== '\n') {
+//                done = 1;
+//            }
+//        } 
+//    }
     _delay_ms(1000);
+//    LR2_sendStringCmd("sys reset\r\n");
+//    _delay_ms(1000);
 }
 
 void LR2_sendStringCmd(char *str)
