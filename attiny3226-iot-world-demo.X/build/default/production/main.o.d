@@ -41,7 +41,8 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
  mcc_generated_files/system/../vref/../system/utils/compiler.h \
  mcc_generated_files/system/../system/interrupt.h \
  mcc_generated_files/system/../system/../system/utils/atomic.h state.h \
- bme280.h TWI.h lr2.h LR2_ringBuffer.h TERM_ringBuffer.h
+ bme280.h TWI.h lr2.h LR2_ringBuffer.h TERM_ringBuffer.h \
+ c:\program\ files\microchip\xc8\v2.32\avr\avr\include\math.h
 
 mcc_generated_files/system/system.h:
 
@@ -138,3 +139,5 @@ lr2.h:
 LR2_ringBuffer.h:
 
 TERM_ringBuffer.h:
+
+c:\program\ files\microchip\xc8\v2.32\avr\avr\include\math.h:

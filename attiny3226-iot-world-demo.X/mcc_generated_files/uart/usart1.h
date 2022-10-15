@@ -50,7 +50,7 @@
 #endif
 
 /* Normal Mode, Baud register value */
-#define USART1_BAUD_RATE(BAUD_RATE) (((float)3333333 * 64 / (16 * (float)BAUD_RATE)) + 0.5)
+#define USART1_BAUD_RATE(BAUD_RATE) (((float)F_CPU * 64 / (16 * (float)BAUD_RATE)) + 0.5)
 
 #define LR2_interface LR2
 

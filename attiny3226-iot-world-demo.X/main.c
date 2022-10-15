@@ -30,19 +30,26 @@
     EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
     THIS SOFTWARE.
 */
+//#define F_CPU 20000000
+
 #include "mcc_generated_files/system/system.h"
 #include "state.h"
+#include <math.h>
 
-#define TOP_VALUE 0xFFFF
+#define TOP_VALUE 0x007F
 #define SECSLEEP   60       // Length of time between measurements
+#define TIMEBASE_VALUE ((uint8_t) ceil(F_CPU * 0.000001)) // ADC timebase
 /*
     Main application
 */
 
 void PORT_init(void);
 void EVSYS_init(void);
+void Init_TCA(void);
 void TCB_init(void);
 void Init_PIT(void);
+void Init_ADC(void);
+
     
 int main(void)
 {
@@ -52,8 +59,11 @@ int main(void)
     //Baremetal Setup for State Machine
     PORT_init();
     EVSYS_init();
+    Init_TCA();
     TCB_init();
     Init_PIT();
+    Init_ADC();
+    
     
     sei();
 
@@ -62,6 +72,8 @@ int main(void)
     
     //Initialize the Weather Click
     WeatherClick_initialize();
+    
+    LR2_PWR_SetLow();
      
     while(1)
     { 
@@ -79,12 +91,31 @@ void PORT_init(void)
     //Set Up Switch 0
     PORTC.DIR &= ~(PIN1_bm);
     PORTC.PIN1CTRL |= PORT_PULLUPEN_bm;
+    
+    // Set PWM Port
+    PORTB.DIR |= PIN4_bm;
+    
+    // Testing TCB1
+    PORTA.DIR |= PIN6_bm;
+    
 }
 
 void EVSYS_init(void)
 {
     EVSYS.CHANNEL3 = EVSYS_CHANNEL3_PORTC_PIN1_gc;
     EVSYS.USERTCB1CAPT = EVSYS_USER_CHANNEL3_gc;
+}
+
+// TCA produces ~868kHz PWM for measuring soil moisture
+void Init_TCA(void)
+{
+    PORTMUX.TCAROUTEA = PORTMUX_TCA01_ALT1_gc;
+    TCA0.SINGLE.CMP1 = 13;  // was 11
+    TCA0.SINGLE.CNT = 0x0;
+    TCA0.SINGLE.CTRLB = TCA_SINGLE_CMP1_bm | TCA_SINGLE_WGMODE_SINGLESLOPE_gc;
+
+    TCA0.SINGLE.PER = 22; // (20MHz / 868kHz) - 1 = 22  (Datasheet pg 201))
+    TCA0.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV1_gc | TCA_SINGLE_ENABLE_bm;
 }
 
 void TCB_init(void)
@@ -96,10 +127,10 @@ void TCB_init(void)
     TCB0.CTRLA = TCB_CLKSEL_DIV2_gc | TCB_ENABLE_bm; // START TIMER
     
     //For button debouncing
-    TCB1.CCMP = TOP_VALUE;              //In single shot so CCMP stores TOP 
+    TCB1.CCMP = TOP_VALUE;              //In single shot so CCMP stores TOP // TOP_VALUE
     TCB1.CTRLB = TCB_CNTMODE_SINGLE_gc;
     TCB1.EVCTRL = TCB_CAPTEI_bm | TCB_EDGE_bm;  // Input capture event, 
-    TCB1.CTRLA = TCB_CLKSEL_0_bm | TCB_ENABLE_bm;   // CLK_PER and TCB Enable
+    TCB1.CTRLA = TCB_CLKSEL_0_bm | TCB_ENABLE_bm;   // CLK_PER and TCB Enable  changed from TCB_CLKSEL_0_bm
     TCB1.CNT = TOP_VALUE;
     TCB1.INTCTRL = TCB_CAPT_bm; //Capture Interrupt Enable
 }
@@ -119,3 +150,30 @@ void Init_PIT(void) {
     RTC.PITCTRLA = RTC_PERIOD_CYC1024_gc | RTC_PITEN_bm; //RTC_PERIOD_CYC32768_gc | RTC_PITEN_bm;
     
 }
+
+void Init_ADC(void) {
+    // Pin PA7 disable input buffer and turn off pullup
+    PORTA.PIN7CTRL = ~PORT_PULLUPEN_bm | PORT_ISC_INPUT_DISABLE_gc;
+    
+    // 1. Enable the ADC by writing a ?1? to the ENABLE bit in the Control A (ADCn.CTRLA) register.
+    ADC0.CTRLA = ADC_ENABLE_bm;
+    // 2. Configure the Prescaler (PRESC) bit field in the Control B (ADCn.CTRLB) register.
+    ADC0.CTRLB = ADC_PRESC_DIV4_gc; // ADC CLK 5MHz
+    
+    // 3. Configure the Timebase (TIMEBASE) and Reference Select (REFSEL) bit fields in the Control C (ADCn.CTRLC) register.
+    // timebase to get 1us (with ADC CLK = 5Mhz) is 20 (0x14) -- SEE #define
+    // and use VDD as ADC ref
+    ADC0.CTRLC = (TIMEBASE_VALUE << ADC_TIMEBASE_gp) | ADC_REFSEL_VDD_gc;
+    
+    // 4. Configure the Sample Duration (SAMPDUR) bit field in the Control E (ADCn.CTRLE) register.
+    ADC0.CTRLE = 0xFF;
+    
+    // select AIN7 (PA7) as ADC input
+    ADC0.MUXPOS = ADC_MUXPOS_AIN7_gc;
+    
+    // setup single 12-bit read and start ADC read immediately
+    ADC0.COMMAND = ADC_MODE_SINGLE_12BIT_gc;
+}
+
+
+

@@ -40,7 +40,9 @@ bool weather_initialized = 0;
 bool label_initial = false;
 static volatile uint16_t event_flags = 0;
 volatile uint32_t millis = 0;   // counter for elapsed milliseconds
+uint32_t last_millis = 0;
 uint32_t secs = 0;              // counter for elapsed seconds
+uint32_t soilSecs = 0;
 uint32_t lastsecs = 0;          // reference to determine total elapsed time in sec
 uint16_t numTx = 0;
 
@@ -48,7 +50,7 @@ uint16_t numTx = 0;
 char payload[17];
 
 //Data structure: measurements from Weather Click and moisture sensor
-static sensor_data_t data;
+sensor_data_t data;
 
 
 // 1ms interrupt
@@ -102,6 +104,17 @@ void WeatherClick_readSensors(void) {
     BME280_readMeasurements();
 }
 
+uint16_t Read_ADC(void) {
+    
+    ADC0.COMMAND |= ADC_START_IMMEDIATE_gc;     // start ADC read
+    
+    while(!(ADC0.INTFLAGS & ADC_RESRDY_bm)){;}  // wait for result to be ready
+    ADC0.INTFLAGS |= ADC_RESRDY_bm;             // clear interrupt
+    return ADC0.RESULT;
+    
+}
+
+
 //Get 100 raw values from soil moisture sensor for calibration
 void printRawValues() {
     uint8_t count = 0;
@@ -145,8 +158,23 @@ uint8_t map(uint16_t raw) {
     return 100 - (uint8_t) val;
 }
 
+// pulse soil moisture sensor for 1 sec at ~868kHz
+void Soil_Pulse(void)   {    
+    static uint32_t loop_cnt = 0;
+    loop_cnt++;
+    soilSecs = ((millis - last_millis) / 1000UL); 
+    if(soilSecs - lastsecs >= 2UL) {
+        last_millis = millis;    
+    }
+    
+}
+
 uint8_t getMoistureMeasurement() {
-    uint16_t val = ADC0_GetConversion(7);
+    printf("before pulse\n");
+    Soil_Pulse();
+    printf("before adc read\n");
+    uint16_t val = Read_ADC();
+    printf("soil moist: %d\n", val);
     return map(val);    
 }
 
@@ -164,14 +192,19 @@ uint8_t getBatteryLevel()   {
 //Gets Data from the Weather Click and Soil Moisture Sensor
 void getSensorData(sensor_data_t *data)
 {
+    printf("in get sensors data\n");
     WeatherClick_readSensors();
-
+    printf("complete read sensors\n");
+    
     data->temp_air = (int8_t) BME280_getTemperature();
     data->press = BME280_getPressure();
     data->humid = (uint8_t) BME280_getHumidity();
     data->moist = getMoistureMeasurement();
+    printf("moist\n");
     data->battery = getBatteryLevel();
     data->numTx = numTx + 1;
+    
+    printf("completed loading struct");
     
 #ifdef DEBUG
     printSensorData(data); //To compare and demonstrate successful transmission
@@ -209,7 +242,7 @@ void printSensorData(sensor_data_t *data)
  * requires 4 chars, RN2903 payload string is terminated with "\r\n\0"
  */ 
 void formatPayload(char *str, sensor_data_t *data) {
-        
+    printf("in format payload\n");    
     char hex[]= "0123456789ABCDEF";
     
     str[0] = hex[((data->temp_air >> 4) & 0x0F)];
@@ -247,14 +280,15 @@ void sendAndReceiveBuffers() {
 
 void BUTTON_releaseCallback(void)
 {
-    PORTC.OUTSET |= PIN0_bm;
-    
+   //PORTC.OUTSET |= PIN0_bm;
+    PORTA.OUTTGL |= PIN6_bm; // Test TCB1
+    printf("button\n");
     event_flags |= UI_BUTTON_FLAG;
 }
 
 void BUTTON_pressCallback(void)
 {
-    PORTC.OUTSET &= ~PIN0_bm;   
+    //PORTC.OUTSET &= ~PIN0_bm;   
 }
 
 
@@ -301,7 +335,7 @@ void stateMachine()
     switch(state) {
         case TTN_JOIN_REQUEST:
             
-            sendAndReceiveBuffers();
+            //sendAndReceiveBuffers();
             //TODO: Handle Join Errors
 //            if(Buffer_find("accepted\r\n")) {
 //                TERM_sendStringRaw("Rx: accepted\n");
@@ -315,10 +349,15 @@ void stateMachine()
         // start a timer     
         case SEND_DATA:
             //Gather and format sensor data for transmission
+            printf("send data\n");
             getSensorData(&data);
+            printf("before payload\n");
             formatPayload(payload, &data);
+            printf("before send\n");
             if(numTx % 10 == 0) {
+                printf("before tx\n");
                 LR2_tx_cnf(payload);
+                printf("after tx");
             }
             else {
                 LR2_tx_uncnf(payload);
@@ -333,13 +372,13 @@ void stateMachine()
         //Wait for mac_tx_ok, then go to sleep/ enter low power mode 
         //TODO: parse LR2 messages, if mac_tx_ok, sleep, otherwise handle error
         case SLEEP:
-            // Put the RN2903 to sleep to save power for 120 sec
+              // Put the RN2903 to sleep to save power for 120 sec
 //            if(secs == 30)   {
 //                LR2_tx_buff_Push_Str("sys sleep 120000\r\n");
 //            }
             //After 3 minutes, return to read and transmit next measurement
             //secs = (millis / 1000); 
-            if(secs == 180 ) {
+            if(secs >= 10 ) {
                 state = SEND_DATA;
                 //Stop the timer
                 RTC.CTRLA &= ~RTC_RTCEN_bm;
@@ -348,7 +387,7 @@ void stateMachine()
             //Allow terminal access for debug purposes, ie, type mac get dr to
             //check data rate, or mac get status to check if joined
             //Remove when not debugging
-            sendAndReceiveBuffers();
+            //sendAndReceiveBuffers();
             break;
             
         case WAIT_FOR_BUTTON:

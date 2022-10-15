@@ -44,7 +44,7 @@ void SYSTEM_Initialize(void)
 {
     CLOCK_Initialize();
     PIN_MANAGER_Initialize();
-    ADC0_Initialize();
+    //ADC0_Initialize();
     USART0_Initialize();
     USART1_Initialize();
     VREF_Initialize();

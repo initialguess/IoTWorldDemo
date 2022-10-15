@@ -3,14 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/state.c</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/LR2_ringBuffer.c</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/TERM_ringBuffer.c</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/state.h</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/lr2.c</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/mcc_generated_files/system/pins.h</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/main.c</file>
-            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny1627-iot-world-demo.X/lr2.h</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/uart/src/usart1.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/uart/src/usart0.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/uart/usart1.h</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/uart/usart0.h</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/bme280.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/adc/adc0.h</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/adc/src/adc0.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/state.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/system/pins.h</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/lr2.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/state.h</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/TERM_ringBuffer.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/main.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/lr2.h</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/system/src/clock.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/system/src/system.c</file>
+            <file>file:/C:/Users/C70348/MPLABXProjects/GitRepos/IoTWorldDemo/attiny3226-iot-world-demo.X/mcc_generated_files/system/clock.h</file>
         </group>
     </open-files>
 </project-private>

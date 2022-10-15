@@ -28,8 +28,7 @@ void LR2_reset(void) {
 #endif
     
     /* Reset the RN2903 */
-    LR2_PWR_SetLow();
-    _delay_ms(100);
+
     
     LR2_RST_SetHigh();
     _delay_ms(100);         
