@@ -167,6 +167,7 @@ void LR2_config_abp()
     LR2_recvRsp();
     TERM_sendStringRaw("\n\n");
     _delay_ms(100);
+    
 }
 
 void LR2_config_otaa()
@@ -204,7 +205,9 @@ void LR2_join_abp()
     TERM_sendStringRaw("-----------------------------------------------------------------------\n");
 #endif
     LR2_sendStringCmd("mac join abp\r\n");
-    LR2_recvRsp();
+    //LR2_recvRsp();
+    LR2_sendStringCmd("mac get status\r\n");
+    
 }
 
 void LR2_join_otaa() 
@@ -255,10 +258,11 @@ void LR2_tx_cnf(char *str) {
     TERM_sendStringRaw("\nTx: mac tx cnf 42 ");
     TERM_sendStringRaw(str);
 #endif
-    
+       
     //Send Transmission to LR2 UART Tx
-    LR2_tx_buff_Push_Str("mac tx cnf 42 ");
-    LR2_tx_buff_Push_Str(str);    
+    LR2_tx_buff_Push_Str("mac tx cnf 42 15440002C06401\r\n");
+    //LR2_tx_buff_Push_Str("mac tx cnf 42 ");
+    //LR2_tx_buff_Push_Str(str);    
 }
 
 //Transmits a formatted payload string on port 1 using unconfirmed uplink

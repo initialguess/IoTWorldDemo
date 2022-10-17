@@ -39,7 +39,7 @@ extern "C" {
    
 /* OTAA Session Keys */
 #define APPEUI "0000000000000000"
-#define APPKEY "F42C382BB9A879F722499DEC7EF65BF3"    
+#define APPKEY "836F809E76F291A529C540A0371E4137"    
  
 /* LR2 Click Commands */
 #define LR2_CMD_SYS_GET_VER          "sys get ver"

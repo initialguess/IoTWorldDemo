@@ -281,7 +281,7 @@ void sendAndReceiveBuffers() {
 void BUTTON_releaseCallback(void)
 {
    //PORTC.OUTSET |= PIN0_bm;
-    PORTA.OUTTGL |= PIN6_bm; // Test TCB1
+    //PORTA.OUTTGL |= PIN6_bm; // Test TCB1
     printf("button\n");
     event_flags |= UI_BUTTON_FLAG;
 }
@@ -356,11 +356,13 @@ void stateMachine()
             printf("before send\n");
             if(numTx % 10 == 0) {
                 printf("before tx\n");
+                //LR2_sendStringCmd("mac get status\r\n");
                 LR2_tx_cnf(payload);
                 printf("after tx");
             }
             else {
-                LR2_tx_uncnf(payload);
+                LR2_sendStringCmd("mac get status\r\n");
+                //LR2_tx_uncnf(payload);
             }
             //Advance Transmission Count
             numTx++;
@@ -378,7 +380,7 @@ void stateMachine()
 //            }
             //After 3 minutes, return to read and transmit next measurement
             //secs = (millis / 1000); 
-            if(secs >= 10 ) {
+            if(secs >= 180 ) {
                 state = SEND_DATA;
                 //Stop the timer
                 RTC.CTRLA &= ~RTC_RTCEN_bm;
