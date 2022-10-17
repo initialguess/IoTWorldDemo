@@ -169,7 +169,7 @@ void getSensorData(sensor_data_t *data)
     data->temp_air = (int8_t) BME280_getTemperature();
     data->press = BME280_getPressure();
     data->humid = (uint8_t) BME280_getHumidity();
-    data->moist = getMoistureMeasurement();
+    //data->moist = getMoistureMeasurement();
     data->battery = getBatteryLevel();
     data->numTx = numTx + 1;
     
@@ -247,14 +247,14 @@ void sendAndReceiveBuffers() {
 
 void BUTTON_releaseCallback(void)
 {
-    PORTC.OUTSET |= PIN0_bm;
+    //PORTC.OUTSET |= PIN0_bm;
     
     event_flags |= UI_BUTTON_FLAG;
 }
 
 void BUTTON_pressCallback(void)
 {
-    PORTC.OUTSET &= ~PIN0_bm;   
+    //PORTC.OUTSET &= ~PIN0_bm;   
 }
 
 
@@ -317,6 +317,11 @@ void stateMachine()
             //Gather and format sensor data for transmission
             getSensorData(&data);
             formatPayload(payload, &data);
+           
+            LR2_sendStringCmd("mac get status\r\n");
+            LR2_recvRsp();
+            
+            LR2_RTS_SetHigh(); 
             if(numTx % 10 == 0) {
                 LR2_tx_cnf(payload);
             }
