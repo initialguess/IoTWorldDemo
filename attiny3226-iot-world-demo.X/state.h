@@ -55,6 +55,7 @@ void PrintUtility_enable(void);
 void WeatherClick_readSensors(void);
 void printRawValues(void);
 uint8_t map(uint16_t raw);
+void Soil_Pulse(void);
 uint8_t getMoistureMeasurement();
 uint8_t getSoilTemp();
 uint8_t getBatteryLevel();

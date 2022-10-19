@@ -40,7 +40,9 @@ bool weather_initialized = 0;
 bool label_initial = false;
 static volatile uint16_t event_flags = 0;
 volatile uint32_t millis = 0;   // counter for elapsed milliseconds
+uint32_t last_millis = 0;
 uint32_t secs = 0;              // counter for elapsed seconds
+uint32_t soilSecs = 0;
 uint32_t lastsecs = 0;          // reference to determine total elapsed time in sec
 uint16_t numTx = 0;
 
@@ -145,7 +147,19 @@ uint8_t map(uint16_t raw) {
     return 100 - (uint8_t) val;
 }
 
+// pulse soil moisture sensor for 1 sec at ~868kHz
+void Soil_Pulse(void)   {    
+    static uint32_t loop_cnt = 0;
+    loop_cnt++;
+    soilSecs = ((millis - last_millis) / 1000UL); 
+    if(soilSecs - lastsecs >= 2UL) {
+        last_millis = millis;    
+    }
+    
+}
+
 uint8_t getMoistureMeasurement() {
+    Soil_Pulse();
     uint16_t val = ADC0_GetConversion(7);
     return map(val);    
 }
@@ -169,7 +183,7 @@ void getSensorData(sensor_data_t *data)
     data->temp_air = (int8_t) BME280_getTemperature();
     data->press = BME280_getPressure();
     data->humid = (uint8_t) BME280_getHumidity();
-    //data->moist = getMoistureMeasurement();
+    data->moist = getMoistureMeasurement();
     data->battery = getBatteryLevel();
     data->numTx = numTx + 1;
     

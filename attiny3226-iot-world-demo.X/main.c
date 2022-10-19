@@ -93,7 +93,7 @@ void PORT_init(void)
     PORTC.PIN1CTRL |= PORT_PULLUPEN_bm;
     
     // Set PWM Port
-    PORTB.DIR |= PIN4_bm;
+    PORTB.DIRSET = PIN4_bm | PIN5_bm; // PB5 clk out, PB4 TCA WO1 ALT1 out
     
     // Testing TCB1
     PORTA.DIR |= PIN6_bm;
@@ -110,11 +110,11 @@ void EVSYS_init(void)
 void Init_TCA(void)
 {
     PORTMUX.TCAROUTEA = PORTMUX_TCA01_ALT1_gc;
-    TCA0.SINGLE.CMP1 = 13;  // was 11
+    TCA0.SINGLE.CMP1 = 2; //    11;
     TCA0.SINGLE.CNT = 0x0;
     TCA0.SINGLE.CTRLB = TCA_SINGLE_CMP1_bm | TCA_SINGLE_WGMODE_SINGLESLOPE_gc;
-
-    TCA0.SINGLE.PER = 22; // (20MHz / 868kHz) - 1 = 22  (Datasheet pg 201))
+    // (3.333333MHz / 868kHz) - 1 = 2.8
+    TCA0.SINGLE.PER = 3; 
     TCA0.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV1_gc | TCA_SINGLE_ENABLE_bm;
 }
 
