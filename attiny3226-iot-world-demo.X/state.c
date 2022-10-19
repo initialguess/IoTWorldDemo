@@ -331,11 +331,8 @@ void stateMachine()
             //Gather and format sensor data for transmission
             getSensorData(&data);
             formatPayload(payload, &data);
-           
-            LR2_sendStringCmd("mac get status\r\n");
-            LR2_recvRsp();
             
-            LR2_RTS_SetHigh(); 
+            //LR2_RTS_SetHigh(); 
             if(numTx % 10 == 0) {
                 LR2_tx_cnf(payload);
             }

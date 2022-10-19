@@ -93,7 +93,7 @@ void PORT_init(void)
     PORTC.PIN1CTRL |= PORT_PULLUPEN_bm;
     
     // Set PWM Port
-    PORTB.DIRSET = PIN4_bm | PIN5_bm; // PB5 clk out, PB4 TCA WO1 ALT1 out
+    PORTB.DIRSET = PIN4_bm; // PB4 TCA WO1 ALT1 out
     
     // Testing TCB1
     PORTA.DIR |= PIN6_bm;
