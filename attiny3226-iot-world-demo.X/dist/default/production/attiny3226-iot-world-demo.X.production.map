@@ -102,7 +102,6 @@ adc_T               0x4               build/default/production/main.o
 bme280_ctrl_meas    0x1               build/default/production/main.o
 USART0_FramingErrorHandler
                     0x2               build/default/production/mcc_generated_files/uart/src/usart0.o
-data                0x7               build/default/production/state.o
 USART0_ParityErrorHandler
                     0x2               build/default/production/mcc_generated_files/uart/src/usart0.o
 USART1_ParityErrorHandler
@@ -120,8 +119,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/mcc_generated_files/adc/src/adc0.o
  .data          0x0000000000000000        0x0 build/default/production/mcc_generated_files/adc/src/adc0.o
  .bss           0x0000000000000000        0x0 build/default/production/mcc_generated_files/adc/src/adc0.o
- .text.ADC0_Initialize
-                0x0000000000000000       0x32 build/default/production/mcc_generated_files/adc/src/adc0.o
  .text.ADC0_Enable
                 0x0000000000000000        0xc build/default/production/mcc_generated_files/adc/src/adc0.o
  .text.ADC0_Disable
@@ -205,14 +202,8 @@ Discarded input sections
                 0x0000000000000000        0xc build/default/production/mcc_generated_files/uart/src/usart0.o
  .text.USART0_TransmitDisable
                 0x0000000000000000        0xc build/default/production/mcc_generated_files/uart/src/usart0.o
- .text.USART0_IsRxReady
-                0x0000000000000000        0xc build/default/production/mcc_generated_files/uart/src/usart0.o
  .text.USART0_ErrorGet
                 0x0000000000000000       0x72 build/default/production/mcc_generated_files/uart/src/usart0.o
- .text.USART0_Read
-                0x0000000000000000        0x6 build/default/production/mcc_generated_files/uart/src/usart0.o
- .text.USART0_Write
-                0x0000000000000000        0x6 build/default/production/mcc_generated_files/uart/src/usart0.o
  .text.USART0_FramingErrorCallbackRegister
                 0x0000000000000000        0xe build/default/production/mcc_generated_files/uart/src/usart0.o
  .text.USART0_OverrunErrorCallbackRegister
@@ -237,14 +228,10 @@ Discarded input sections
                 0x0000000000000000        0xc build/default/production/mcc_generated_files/uart/src/usart1.o
  .text.USART1_TransmitDisable
                 0x0000000000000000        0xc build/default/production/mcc_generated_files/uart/src/usart1.o
- .text.USART1_IsRxReady
-                0x0000000000000000        0xc build/default/production/mcc_generated_files/uart/src/usart1.o
  .text.USART1_IsTxDone
                 0x0000000000000000        0xc build/default/production/mcc_generated_files/uart/src/usart1.o
  .text.USART1_ErrorGet
                 0x0000000000000000       0x72 build/default/production/mcc_generated_files/uart/src/usart1.o
- .text.USART1_Read
-                0x0000000000000000        0x6 build/default/production/mcc_generated_files/uart/src/usart1.o
  .text.USART1_FramingErrorCallbackRegister
                 0x0000000000000000        0xe build/default/production/mcc_generated_files/uart/src/usart1.o
  .text.USART1_OverrunErrorCallbackRegister
@@ -283,56 +270,41 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/state.o
  .data          0x0000000000000000        0x0 build/default/production/state.o
  .bss           0x0000000000000000        0x0 build/default/production/state.o
+ .text.map      0x0000000000000000       0x3c build/default/production/state.o
  .text.printRawValues
                 0x0000000000000000       0xbe build/default/production/state.o
+ .text.getMoistureMeasurement
+                0x0000000000000000        0xe build/default/production/state.o
  .text.getSoilTemp
                 0x0000000000000000       0x18 build/default/production/state.o
- .text.sendAndReceiveBuffers
-                0x0000000000000000       0x52 build/default/production/state.o
  .text.BUTTON_pressCallback
                 0x0000000000000000        0x2 build/default/production/state.o
+ .bss.lastsecs  0x0000000000000000        0x4 build/default/production/state.o
  .bss.label_initial
                 0x0000000000000000        0x1 build/default/production/state.o
  .text          0x0000000000000000        0x0 build/default/production/lr2.o
  .data          0x0000000000000000        0x0 build/default/production/lr2.o
  .bss           0x0000000000000000        0x0 build/default/production/lr2.o
- .text.LR2_recvRsp
-                0x0000000000000000       0x3c build/default/production/lr2.o
  .text.LR2_config_otaa
-                0x0000000000000000       0xaa build/default/production/lr2.o
+                0x0000000000000000       0xa6 build/default/production/lr2.o
  .text.LR2_join_otaa
-                0x0000000000000000       0x30 build/default/production/lr2.o
- .text.LR2_tx_uncnf
-                0x0000000000000000       0x38 build/default/production/lr2.o
+                0x0000000000000000       0x2e build/default/production/lr2.o
  .text          0x0000000000000000        0x0 build/default/production/LR2_ringBuffer.o
  .data          0x0000000000000000        0x0 build/default/production/LR2_ringBuffer.o
  .bss           0x0000000000000000        0x0 build/default/production/LR2_ringBuffer.o
- .text.LR2_tx_buff_Push
-                0x0000000000000000       0x2a build/default/production/LR2_ringBuffer.o
- .text.LR2_tx_buff_Count
-                0x0000000000000000        0xc build/default/production/LR2_ringBuffer.o
  .text.LR2_buffer_reset
                 0x0000000000000000       0x1a build/default/production/LR2_ringBuffer.o
  .text          0x0000000000000000        0x0 build/default/production/TERM_ringBuffer.o
  .data          0x0000000000000000        0x0 build/default/production/TERM_ringBuffer.o
  .bss           0x0000000000000000        0x0 build/default/production/TERM_ringBuffer.o
- .text.TERM_tx_buff_Push
-                0x0000000000000000       0x2a build/default/production/TERM_ringBuffer.o
  .text.TERM_tx_buff_Push_Str
                 0x0000000000000000       0x68 build/default/production/TERM_ringBuffer.o
- .text.TERM_tx_buff_Pop
-                0x0000000000000000       0x16 build/default/production/TERM_ringBuffer.o
- .text.TERM_tx_buff_Count
-                0x0000000000000000        0xc build/default/production/TERM_ringBuffer.o
  .text.TERM_buffer_reset
                 0x0000000000000000       0x1a build/default/production/TERM_ringBuffer.o
  .text.TERM_sendBufferedString
                 0x0000000000000000       0x52 build/default/production/TERM_ringBuffer.o
  .text.Buffer_find
                 0x0000000000000000       0x54 build/default/production/TERM_ringBuffer.o
- .bss.tail      0x0000000000000000        0x1 build/default/production/TERM_ringBuffer.o
- .bss.head      0x0000000000000000        0x1 build/default/production/TERM_ringBuffer.o
- .bss.Buffer    0x0000000000000000      0x100 build/default/production/TERM_ringBuffer.o
  .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(addsf3.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(addsf3.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(addsf3.o)
@@ -875,7 +847,7 @@ END GROUP
                 0x0000000000803400                _edata = .
                 [!provide]                        PROVIDE (__data_end, .)
 
-.bss            0x0000000000803400       0xb8
+.bss            0x0000000000803400       0xb1
                 [!provide]                        PROVIDE (__bss_start, .)
  *(COMMON)
  COMMON         0x0000000000803400        0x6 build/default/production/mcc_generated_files/uart/src/usart0.o
@@ -898,20 +870,19 @@ END GROUP
                 0x0000000000803457                str_press
                 0x0000000000803475                t_fine
                 0x0000000000803479                calibParam
- COMMON         0x000000000080349a       0x18 build/default/production/state.o
-                0x000000000080349a                data
-                0x00000000008034a1                payload
- COMMON         0x00000000008034b2        0x6 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(iob.o)
-                0x00000000008034b2                __iob
+ COMMON         0x000000000080349a       0x11 build/default/production/state.o
+                0x000000000080349a                payload
+ COMMON         0x00000000008034ab        0x6 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(iob.o)
+                0x00000000008034ab                __iob
                 [!provide]                        PROVIDE (__bss_end, .)
                 0x0000000000000160                __data_load_start = LOADADDR (.data)
                 0x0000000000000160                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00000000008034b8        0x0
+.noinit         0x00000000008034b1        0x0
                 [!provide]                        PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                        PROVIDE (__noinit_end, .)
-                0x00000000008034b8                _end = .
+                0x00000000008034b1                _end = .
 
 .eeprom         0x0000000000810000        0x0
  *(.eeprom*)
@@ -1072,7 +1043,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x6f0
+.debug_aranges  0x0000000000000000      0x6d0
  *(.debug_aranges)
  .debug_aranges
                 0x0000000000000000       0xb8 build/default/production/mcc_generated_files/adc/src/adc0.o
@@ -1095,87 +1066,87 @@ END GROUP
  .debug_aranges
                 0x00000000000003b0       0x20 build/default/production/mcc_generated_files/vref/src/vref.o
  .debug_aranges
-                0x00000000000003d0       0x50 build/default/production/main.o
+                0x00000000000003d0       0x40 build/default/production/main.o
  .debug_aranges
-                0x0000000000000420       0x70 build/default/production/TWI.o
+                0x0000000000000410       0x70 build/default/production/TWI.o
  .debug_aranges
-                0x0000000000000490       0x90 build/default/production/bme280.o
+                0x0000000000000480       0x90 build/default/production/bme280.o
  .debug_aranges
-                0x0000000000000520       0xb0 build/default/production/state.o
+                0x0000000000000510       0xa0 build/default/production/state.o
  .debug_aranges
-                0x00000000000005d0       0x80 build/default/production/lr2.o
+                0x00000000000005b0       0x80 build/default/production/lr2.o
  .debug_aranges
-                0x0000000000000650       0x40 build/default/production/LR2_ringBuffer.o
+                0x0000000000000630       0x40 build/default/production/LR2_ringBuffer.o
  .debug_aranges
-                0x0000000000000690       0x60 build/default/production/TERM_ringBuffer.o
+                0x0000000000000670       0x60 build/default/production/TERM_ringBuffer.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0xe3e4
+.debug_info     0x0000000000000000     0xd067
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000     0x1b97 C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny3226.o
  .debug_info    0x0000000000001b97      0xfa7 build/default/production/mcc_generated_files/adc/src/adc0.o
- .debug_info    0x0000000000002b3e      0x4ed build/default/production/mcc_generated_files/system/src/clock.o
- .debug_info    0x000000000000302b      0x813 build/default/production/mcc_generated_files/system/src/config_bits.o
- .debug_info    0x000000000000383e      0x3db build/default/production/mcc_generated_files/system/src/interrupt.o
- .debug_info    0x0000000000003c19      0x316 build/default/production/mcc_generated_files/system/src/system.o
- .debug_info    0x0000000000003f2f       0xa5 build/default/production/mcc_generated_files/system/src/protected_io.o
- .debug_info    0x0000000000003fd4      0xd96 build/default/production/mcc_generated_files/system/src/pins.o
- .debug_info    0x0000000000004d6a      0xed1 build/default/production/mcc_generated_files/uart/src/usart0.o
- .debug_info    0x0000000000005c3b      0xd18 build/default/production/mcc_generated_files/uart/src/usart1.o
- .debug_info    0x0000000000006953      0x31b build/default/production/mcc_generated_files/vref/src/vref.o
- .debug_info    0x0000000000006c6e     0x28e2 build/default/production/main.o
- .debug_info    0x0000000000009550      0xb33 build/default/production/TWI.o
- .debug_info    0x000000000000a083      0xce1 build/default/production/bme280.o
- .debug_info    0x000000000000ad64     0x1ce0 build/default/production/state.o
- .debug_info    0x000000000000ca44      0xed2 build/default/production/lr2.o
- .debug_info    0x000000000000d916      0x3cc build/default/production/LR2_ringBuffer.o
- .debug_info    0x000000000000dce2      0x702 build/default/production/TERM_ringBuffer.o
+ .debug_info    0x0000000000002b3e      0x675 build/default/production/mcc_generated_files/system/src/clock.o
+ .debug_info    0x00000000000031b3      0x813 build/default/production/mcc_generated_files/system/src/config_bits.o
+ .debug_info    0x00000000000039c6      0x3db build/default/production/mcc_generated_files/system/src/interrupt.o
+ .debug_info    0x0000000000003da1      0x32c build/default/production/mcc_generated_files/system/src/system.o
+ .debug_info    0x00000000000040cd       0xa5 build/default/production/mcc_generated_files/system/src/protected_io.o
+ .debug_info    0x0000000000004172      0xd96 build/default/production/mcc_generated_files/system/src/pins.o
+ .debug_info    0x0000000000004f08      0xed1 build/default/production/mcc_generated_files/uart/src/usart0.o
+ .debug_info    0x0000000000005dd9      0xd18 build/default/production/mcc_generated_files/uart/src/usart1.o
+ .debug_info    0x0000000000006af1      0x31b build/default/production/mcc_generated_files/vref/src/vref.o
+ .debug_info    0x0000000000006e0c     0x17b4 build/default/production/main.o
+ .debug_info    0x00000000000085c0      0xb33 build/default/production/TWI.o
+ .debug_info    0x00000000000090f3      0xce1 build/default/production/bme280.o
+ .debug_info    0x0000000000009dd4     0x1817 build/default/production/state.o
+ .debug_info    0x000000000000b5eb      0xfae build/default/production/lr2.o
+ .debug_info    0x000000000000c599      0x3cc build/default/production/LR2_ringBuffer.o
+ .debug_info    0x000000000000c965      0x702 build/default/production/TERM_ringBuffer.o
 
-.debug_abbrev   0x0000000000000000     0x321b
+.debug_abbrev   0x0000000000000000     0x31d9
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000     0x1a20 C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny3226.o
  .debug_abbrev  0x0000000000001a20      0x21a build/default/production/mcc_generated_files/adc/src/adc0.o
- .debug_abbrev  0x0000000000001c3a       0xa4 build/default/production/mcc_generated_files/system/src/clock.o
- .debug_abbrev  0x0000000000001cde       0x97 build/default/production/mcc_generated_files/system/src/config_bits.o
- .debug_abbrev  0x0000000000001d75       0xfa build/default/production/mcc_generated_files/system/src/interrupt.o
- .debug_abbrev  0x0000000000001e6f       0x58 build/default/production/mcc_generated_files/system/src/system.o
- .debug_abbrev  0x0000000000001ec7       0x14 build/default/production/mcc_generated_files/system/src/protected_io.o
- .debug_abbrev  0x0000000000001edb      0x162 build/default/production/mcc_generated_files/system/src/pins.o
- .debug_abbrev  0x000000000000203d      0x2e8 build/default/production/mcc_generated_files/uart/src/usart0.o
- .debug_abbrev  0x0000000000002325      0x26b build/default/production/mcc_generated_files/uart/src/usart1.o
- .debug_abbrev  0x0000000000002590       0x8c build/default/production/mcc_generated_files/vref/src/vref.o
- .debug_abbrev  0x000000000000261c      0x1c0 build/default/production/main.o
- .debug_abbrev  0x00000000000027dc      0x191 build/default/production/TWI.o
- .debug_abbrev  0x000000000000296d      0x193 build/default/production/bme280.o
- .debug_abbrev  0x0000000000002b00      0x372 build/default/production/state.o
- .debug_abbrev  0x0000000000002e72      0x14c build/default/production/lr2.o
- .debug_abbrev  0x0000000000002fbe       0xda build/default/production/LR2_ringBuffer.o
- .debug_abbrev  0x0000000000003098      0x183 build/default/production/TERM_ringBuffer.o
+ .debug_abbrev  0x0000000000001c3a      0x11d build/default/production/mcc_generated_files/system/src/clock.o
+ .debug_abbrev  0x0000000000001d57       0x97 build/default/production/mcc_generated_files/system/src/config_bits.o
+ .debug_abbrev  0x0000000000001dee       0xfa build/default/production/mcc_generated_files/system/src/interrupt.o
+ .debug_abbrev  0x0000000000001ee8       0x58 build/default/production/mcc_generated_files/system/src/system.o
+ .debug_abbrev  0x0000000000001f40       0x14 build/default/production/mcc_generated_files/system/src/protected_io.o
+ .debug_abbrev  0x0000000000001f54      0x162 build/default/production/mcc_generated_files/system/src/pins.o
+ .debug_abbrev  0x00000000000020b6      0x2e8 build/default/production/mcc_generated_files/uart/src/usart0.o
+ .debug_abbrev  0x000000000000239e      0x26b build/default/production/mcc_generated_files/uart/src/usart1.o
+ .debug_abbrev  0x0000000000002609       0x8c build/default/production/mcc_generated_files/vref/src/vref.o
+ .debug_abbrev  0x0000000000002695      0x182 build/default/production/main.o
+ .debug_abbrev  0x0000000000002817      0x191 build/default/production/TWI.o
+ .debug_abbrev  0x00000000000029a8      0x193 build/default/production/bme280.o
+ .debug_abbrev  0x0000000000002b3b      0x31e build/default/production/state.o
+ .debug_abbrev  0x0000000000002e59      0x123 build/default/production/lr2.o
+ .debug_abbrev  0x0000000000002f7c       0xda build/default/production/LR2_ringBuffer.o
+ .debug_abbrev  0x0000000000003056      0x183 build/default/production/TERM_ringBuffer.o
 
-.debug_line     0x0000000000000000     0x32ce
+.debug_line     0x0000000000000000     0x329b
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x14b C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny3226.o
  .debug_line    0x000000000000014b      0x3c8 build/default/production/mcc_generated_files/adc/src/adc0.o
- .debug_line    0x0000000000000513       0xfc build/default/production/mcc_generated_files/system/src/clock.o
- .debug_line    0x000000000000060f       0xe6 build/default/production/mcc_generated_files/system/src/config_bits.o
- .debug_line    0x00000000000006f5      0x179 build/default/production/mcc_generated_files/system/src/interrupt.o
- .debug_line    0x000000000000086e      0x13f build/default/production/mcc_generated_files/system/src/system.o
- .debug_line    0x00000000000009ad       0x6d build/default/production/mcc_generated_files/system/src/protected_io.o
- .debug_line    0x0000000000000a1a      0x4a9 build/default/production/mcc_generated_files/system/src/pins.o
- .debug_line    0x0000000000000ec3      0x494 build/default/production/mcc_generated_files/uart/src/usart0.o
- .debug_line    0x0000000000001357      0x45a build/default/production/mcc_generated_files/uart/src/usart1.o
- .debug_line    0x00000000000017b1       0xff build/default/production/mcc_generated_files/vref/src/vref.o
- .debug_line    0x00000000000018b0      0x29f build/default/production/main.o
- .debug_line    0x0000000000001b4f      0x3bd build/default/production/TWI.o
- .debug_line    0x0000000000001f0c      0x3b0 build/default/production/bme280.o
- .debug_line    0x00000000000022bc      0x73a build/default/production/state.o
- .debug_line    0x00000000000029f6      0x4ac build/default/production/lr2.o
- .debug_line    0x0000000000002ea2      0x149 build/default/production/LR2_ringBuffer.o
- .debug_line    0x0000000000002feb      0x2e3 build/default/production/TERM_ringBuffer.o
+ .debug_line    0x0000000000000513      0x161 build/default/production/mcc_generated_files/system/src/clock.o
+ .debug_line    0x0000000000000674       0xe6 build/default/production/mcc_generated_files/system/src/config_bits.o
+ .debug_line    0x000000000000075a      0x179 build/default/production/mcc_generated_files/system/src/interrupt.o
+ .debug_line    0x00000000000008d3      0x178 build/default/production/mcc_generated_files/system/src/system.o
+ .debug_line    0x0000000000000a4b       0x6d build/default/production/mcc_generated_files/system/src/protected_io.o
+ .debug_line    0x0000000000000ab8      0x4a9 build/default/production/mcc_generated_files/system/src/pins.o
+ .debug_line    0x0000000000000f61      0x494 build/default/production/mcc_generated_files/uart/src/usart0.o
+ .debug_line    0x00000000000013f5      0x45a build/default/production/mcc_generated_files/uart/src/usart1.o
+ .debug_line    0x000000000000184f       0xff build/default/production/mcc_generated_files/vref/src/vref.o
+ .debug_line    0x000000000000194e      0x211 build/default/production/main.o
+ .debug_line    0x0000000000001b5f      0x3bd build/default/production/TWI.o
+ .debug_line    0x0000000000001f1c      0x3b0 build/default/production/bme280.o
+ .debug_line    0x00000000000022cc      0x6a2 build/default/production/state.o
+ .debug_line    0x000000000000296e      0x501 build/default/production/lr2.o
+ .debug_line    0x0000000000002e6f      0x149 build/default/production/LR2_ringBuffer.o
+ .debug_line    0x0000000000002fb8      0x2e3 build/default/production/TERM_ringBuffer.o
 
-.debug_frame    0x0000000000000000     0x1170
+.debug_frame    0x0000000000000000     0x10dc
  *(.debug_frame)
  .debug_frame   0x0000000000000000      0x190 build/default/production/mcc_generated_files/adc/src/adc0.o
  .debug_frame   0x0000000000000190       0x24 build/default/production/mcc_generated_files/system/src/clock.o
@@ -1185,45 +1156,46 @@ END GROUP
  .debug_frame   0x0000000000000494      0x16c build/default/production/mcc_generated_files/uart/src/usart0.o
  .debug_frame   0x0000000000000600      0x154 build/default/production/mcc_generated_files/uart/src/usart1.o
  .debug_frame   0x0000000000000754       0x24 build/default/production/mcc_generated_files/vref/src/vref.o
- .debug_frame   0x0000000000000778       0x84 build/default/production/main.o
- .debug_frame   0x00000000000007fc      0x12c build/default/production/TWI.o
- .debug_frame   0x0000000000000928      0x238 build/default/production/bme280.o
- .debug_frame   0x0000000000000b60      0x350 build/default/production/state.o
- .debug_frame   0x0000000000000eb0      0x158 build/default/production/lr2.o
- .debug_frame   0x0000000000001008       0x74 build/default/production/LR2_ringBuffer.o
- .debug_frame   0x000000000000107c       0xf4 build/default/production/TERM_ringBuffer.o
+ .debug_frame   0x0000000000000778       0x64 build/default/production/main.o
+ .debug_frame   0x00000000000007dc      0x12c build/default/production/TWI.o
+ .debug_frame   0x0000000000000908      0x238 build/default/production/bme280.o
+ .debug_frame   0x0000000000000b40      0x2dc build/default/production/state.o
+ .debug_frame   0x0000000000000e1c      0x158 build/default/production/lr2.o
+ .debug_frame   0x0000000000000f74       0x74 build/default/production/LR2_ringBuffer.o
+ .debug_frame   0x0000000000000fe8       0xf4 build/default/production/TERM_ringBuffer.o
 
-.debug_str      0x0000000000000000     0x1109
+.debug_str      0x0000000000000000     0x10d8
  *(.debug_str)
  .debug_str     0x0000000000000000      0xbdd C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny3226.o
  .debug_str     0x0000000000000bdd       0x11 build/default/production/mcc_generated_files/adc/src/adc0.o
- .debug_str     0x0000000000000bee        0x0 build/default/production/mcc_generated_files/system/src/clock.o
- .debug_str     0x0000000000000bee        0x0 build/default/production/mcc_generated_files/system/src/config_bits.o
- .debug_str     0x0000000000000bee       0x13 build/default/production/mcc_generated_files/system/src/interrupt.o
- .debug_str     0x0000000000000c01       0x6e build/default/production/mcc_generated_files/system/src/system.o
- .debug_str     0x0000000000000c6f       0x25 build/default/production/mcc_generated_files/system/src/pins.o
- .debug_str     0x0000000000000c94       0x10 build/default/production/mcc_generated_files/uart/src/usart0.o
- .debug_str     0x0000000000000ca4       0x10 build/default/production/mcc_generated_files/uart/src/usart1.o
- .debug_str     0x0000000000000cb4        0x0 build/default/production/mcc_generated_files/vref/src/vref.o
- .debug_str     0x0000000000000cb4       0xb9 build/default/production/main.o
- .debug_str     0x0000000000000d6d       0x20 build/default/production/TWI.o
- .debug_str     0x0000000000000d8d       0x2d build/default/production/bme280.o
- .debug_str     0x0000000000000dba      0x267 build/default/production/state.o
- .debug_str     0x0000000000001021       0xc7 build/default/production/lr2.o
- .debug_str     0x00000000000010e8        0x0 build/default/production/LR2_ringBuffer.o
- .debug_str     0x00000000000010e8       0x21 build/default/production/TERM_ringBuffer.o
+ .debug_str     0x0000000000000bee       0x13 build/default/production/mcc_generated_files/system/src/clock.o
+ .debug_str     0x0000000000000c01        0x0 build/default/production/mcc_generated_files/system/src/config_bits.o
+ .debug_str     0x0000000000000c01       0x13 build/default/production/mcc_generated_files/system/src/interrupt.o
+ .debug_str     0x0000000000000c14       0x7e build/default/production/mcc_generated_files/system/src/system.o
+ .debug_str     0x0000000000000c92       0x25 build/default/production/mcc_generated_files/system/src/pins.o
+ .debug_str     0x0000000000000cb7       0x10 build/default/production/mcc_generated_files/uart/src/usart0.o
+ .debug_str     0x0000000000000cc7       0x10 build/default/production/mcc_generated_files/uart/src/usart1.o
+ .debug_str     0x0000000000000cd7        0x0 build/default/production/mcc_generated_files/vref/src/vref.o
+ .debug_str     0x0000000000000cd7       0x6e build/default/production/main.o
+ .debug_str     0x0000000000000d45       0x20 build/default/production/TWI.o
+ .debug_str     0x0000000000000d65       0x2d build/default/production/bme280.o
+ .debug_str     0x0000000000000d92      0x25e build/default/production/state.o
+ .debug_str     0x0000000000000ff0       0xc7 build/default/production/lr2.o
+ .debug_str     0x00000000000010b7        0x0 build/default/production/LR2_ringBuffer.o
+ .debug_str     0x00000000000010b7       0x21 build/default/production/TERM_ringBuffer.o
 
-.debug_loc      0x0000000000000000     0x18f3
+.debug_loc      0x0000000000000000     0x1a14
  *(.debug_loc)
  .debug_loc     0x0000000000000000      0x12e build/default/production/mcc_generated_files/adc/src/adc0.o
- .debug_loc     0x000000000000012e       0x2a build/default/production/mcc_generated_files/system/src/interrupt.o
- .debug_loc     0x0000000000000158       0x64 build/default/production/mcc_generated_files/uart/src/usart0.o
- .debug_loc     0x00000000000001bc      0x496 build/default/production/TWI.o
- .debug_loc     0x0000000000000652      0x76f build/default/production/bme280.o
- .debug_loc     0x0000000000000dc1      0x40a build/default/production/state.o
- .debug_loc     0x00000000000011cb      0x4e8 build/default/production/lr2.o
- .debug_loc     0x00000000000016b3       0x7c build/default/production/LR2_ringBuffer.o
- .debug_loc     0x000000000000172f      0x1c4 build/default/production/TERM_ringBuffer.o
+ .debug_loc     0x000000000000012e      0x11f build/default/production/mcc_generated_files/system/src/clock.o
+ .debug_loc     0x000000000000024d       0x2a build/default/production/mcc_generated_files/system/src/interrupt.o
+ .debug_loc     0x0000000000000277       0x64 build/default/production/mcc_generated_files/uart/src/usart0.o
+ .debug_loc     0x00000000000002db      0x496 build/default/production/TWI.o
+ .debug_loc     0x0000000000000771      0x76f build/default/production/bme280.o
+ .debug_loc     0x0000000000000ee0      0x37c build/default/production/state.o
+ .debug_loc     0x000000000000125c      0x578 build/default/production/lr2.o
+ .debug_loc     0x00000000000017d4       0x7c build/default/production/LR2_ringBuffer.o
+ .debug_loc     0x0000000000001850      0x1c4 build/default/production/TERM_ringBuffer.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1243,7 +1215,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000      0x5c8
+.debug_ranges   0x0000000000000000      0x5a8
  *(.debug_ranges)
  .debug_ranges  0x0000000000000000       0xa8 build/default/production/mcc_generated_files/adc/src/adc0.o
  .debug_ranges  0x00000000000000a8       0x10 build/default/production/mcc_generated_files/system/src/clock.o
@@ -1253,13 +1225,13 @@ END GROUP
  .debug_ranges  0x00000000000001b0       0xb0 build/default/production/mcc_generated_files/uart/src/usart0.o
  .debug_ranges  0x0000000000000260       0xa8 build/default/production/mcc_generated_files/uart/src/usart1.o
  .debug_ranges  0x0000000000000308       0x10 build/default/production/mcc_generated_files/vref/src/vref.o
- .debug_ranges  0x0000000000000318       0x40 build/default/production/main.o
- .debug_ranges  0x0000000000000358       0x60 build/default/production/TWI.o
- .debug_ranges  0x00000000000003b8       0x80 build/default/production/bme280.o
- .debug_ranges  0x0000000000000438       0xa0 build/default/production/state.o
- .debug_ranges  0x00000000000004d8       0x70 build/default/production/lr2.o
- .debug_ranges  0x0000000000000548       0x30 build/default/production/LR2_ringBuffer.o
- .debug_ranges  0x0000000000000578       0x50 build/default/production/TERM_ringBuffer.o
+ .debug_ranges  0x0000000000000318       0x30 build/default/production/main.o
+ .debug_ranges  0x0000000000000348       0x60 build/default/production/TWI.o
+ .debug_ranges  0x00000000000003a8       0x80 build/default/production/bme280.o
+ .debug_ranges  0x0000000000000428       0x90 build/default/production/state.o
+ .debug_ranges  0x00000000000004b8       0x70 build/default/production/lr2.o
+ .debug_ranges  0x0000000000000528       0x30 build/default/production/LR2_ringBuffer.o
+ .debug_ranges  0x0000000000000558       0x50 build/default/production/TERM_ringBuffer.o
 
 .debug_macro
  *(.debug_macro)
@@ -1273,924 +1245,970 @@ LOAD data_init
                 0x0000000000000000       0x40 C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny3226.o
 
 .bss.PC3_InterruptHandler
-                0x00000000008035de        0x2
+                0x00000000008036ce        0x2
  .bss.PC3_InterruptHandler
-                0x00000000008035de        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036ce        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PC2_InterruptHandler
-                0x00000000008035e0        0x2
+                0x00000000008036d0        0x2
  .bss.PC2_InterruptHandler
-                0x00000000008035e0        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036d0        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PC0_InterruptHandler
-                0x00000000008035e2        0x2
+                0x00000000008036d2        0x2
  .bss.PC0_InterruptHandler
-                0x00000000008035e2        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036d2        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PB5_InterruptHandler
-                0x00000000008035e4        0x2
+                0x00000000008036d4        0x2
  .bss.PB5_InterruptHandler
-                0x00000000008035e4        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036d4        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PA3_InterruptHandler
-                0x00000000008035e6        0x2
+                0x00000000008036d6        0x2
  .bss.PA3_InterruptHandler
-                0x00000000008035e6        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036d6        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PC1_InterruptHandler
-                0x00000000008035e8        0x2
+                0x00000000008036d8        0x2
  .bss.PC1_InterruptHandler
-                0x00000000008035e8        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036d8        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PB2_InterruptHandler
-                0x00000000008035ea        0x2
+                0x00000000008036da        0x2
  .bss.PB2_InterruptHandler
-                0x00000000008035ea        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036da        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PB3_InterruptHandler
-                0x00000000008035ec        0x2
+                0x00000000008036dc        0x2
  .bss.PB3_InterruptHandler
-                0x00000000008035ec        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036dc        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PA1_InterruptHandler
-                0x00000000008035ee        0x2
+                0x00000000008036de        0x2
  .bss.PA1_InterruptHandler
-                0x00000000008035ee        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036de        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PA2_InterruptHandler
-                0x00000000008035f0        0x2
+                0x00000000008036e0        0x2
  .bss.PA2_InterruptHandler
-                0x00000000008035f0        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036e0        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.PA7_InterruptHandler
-                0x00000000008035f2        0x2
+                0x00000000008036e2        0x2
  .bss.PA7_InterruptHandler
-                0x00000000008035f2        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000008036e2        0x2 build/default/production/mcc_generated_files/system/src/pins.o
 
 .bss.usart0RxLastError
-                0x00000000008035f4        0x2
+                0x00000000008036e4        0x2
  .bss.usart0RxLastError
-                0x00000000008035f4        0x2 build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x00000000008036e4        0x2 build/default/production/mcc_generated_files/uart/src/usart0.o
 
 .bss.usart1RxLastError
-                0x00000000008035f6        0x2
+                0x00000000008036e6        0x2
  .bss.usart1RxLastError
-                0x00000000008035f6        0x2 build/default/production/mcc_generated_files/uart/src/usart1.o
+                0x00000000008036e6        0x2 build/default/production/mcc_generated_files/uart/src/usart1.o
 
-.bss.loop_cnt.4371
-                0x00000000008035c6        0x4
- .bss.loop_cnt.4371
-                0x00000000008035c6        0x4 build/default/production/state.o
+.bss.data       0x00000000008036bf        0x7
+ .bss.data      0x00000000008036bf        0x7 build/default/production/state.o
 
-.bss.numTx      0x00000000008035f8        0x2
- .bss.numTx     0x00000000008035f8        0x2 build/default/production/state.o
-                0x00000000008035f8                numTx
+.bss.numTx      0x00000000008036e8        0x2
+ .bss.numTx     0x00000000008036e8        0x2 build/default/production/state.o
+                0x00000000008036e8                numTx
 
-.bss.lastsecs   0x00000000008035ca        0x4
- .bss.lastsecs  0x00000000008035ca        0x4 build/default/production/state.o
-                0x00000000008035ca                lastsecs
+.bss.secs       0x00000000008036c6        0x4
+ .bss.secs      0x00000000008036c6        0x4 build/default/production/state.o
+                0x00000000008036c6                secs
 
-.bss.soilSecs   0x00000000008035ce        0x4
- .bss.soilSecs  0x00000000008035ce        0x4 build/default/production/state.o
-                0x00000000008035ce                soilSecs
-
-.bss.secs       0x00000000008035d2        0x4
- .bss.secs      0x00000000008035d2        0x4 build/default/production/state.o
-                0x00000000008035d2                secs
-
-.bss.last_millis
-                0x00000000008035d6        0x4
- .bss.last_millis
-                0x00000000008035d6        0x4 build/default/production/state.o
-                0x00000000008035d6                last_millis
-
-.bss.millis     0x00000000008035da        0x4
- .bss.millis    0x00000000008035da        0x4 build/default/production/state.o
-                0x00000000008035da                millis
+.bss.millis     0x00000000008036ca        0x4
+ .bss.millis    0x00000000008036ca        0x4 build/default/production/state.o
+                0x00000000008036ca                millis
 
 .bss.event_flags
-                0x00000000008035fa        0x2
+                0x00000000008036ea        0x2
  .bss.event_flags
-                0x00000000008035fa        0x2 build/default/production/state.o
+                0x00000000008036ea        0x2 build/default/production/state.o
 
 .bss.weather_initialized
-                0x00000000008035fe        0x1
+                0x00000000008036ee        0x1
  .bss.weather_initialized
-                0x00000000008035fe        0x1 build/default/production/state.o
-                0x00000000008035fe                weather_initialized
+                0x00000000008036ee        0x1 build/default/production/state.o
+                0x00000000008036ee                weather_initialized
 
-.bss.numTest    0x00000000008035fc        0x2
- .bss.numTest   0x00000000008035fc        0x2 build/default/production/state.o
-                0x00000000008035fc                numTest
+.bss.numTest    0x00000000008036ec        0x2
+ .bss.numTest   0x00000000008036ec        0x2 build/default/production/state.o
+                0x00000000008036ec                numTest
 
-.bss.state      0x00000000008035ff        0x1
- .bss.state     0x00000000008035ff        0x1 build/default/production/state.o
+.bss.state      0x00000000008036ef        0x1
+ .bss.state     0x00000000008036ef        0x1 build/default/production/state.o
 
-.bss.Tail       0x0000000000803600        0x1
- .bss.Tail      0x0000000000803600        0x1 build/default/production/LR2_ringBuffer.o
+.bss.Tail       0x00000000008036f0        0x1
+ .bss.Tail      0x00000000008036f0        0x1 build/default/production/LR2_ringBuffer.o
 
-.bss.Head       0x0000000000803601        0x1
- .bss.Head      0x0000000000803601        0x1 build/default/production/LR2_ringBuffer.o
+.bss.Head       0x00000000008036f1        0x1
+ .bss.Head      0x00000000008036f1        0x1 build/default/production/LR2_ringBuffer.o
 
-.bss.Buffer     0x00000000008034b8      0x100
- .bss.Buffer    0x00000000008034b8      0x100 build/default/production/LR2_ringBuffer.o
+.bss.Buffer     0x00000000008034b1      0x100
+ .bss.Buffer    0x00000000008034b1      0x100 build/default/production/LR2_ringBuffer.o
+
+.bss.tail       0x00000000008036f2        0x1
+ .bss.tail      0x00000000008036f2        0x1 build/default/production/TERM_ringBuffer.o
+
+.bss.head       0x00000000008036f3        0x1
+ .bss.head      0x00000000008036f3        0x1 build/default/production/TERM_ringBuffer.o
+
+.bss.Buffer     0x00000000008035b1      0x100
+ .bss.Buffer    0x00000000008035b1      0x100 build/default/production/TERM_ringBuffer.o
 
 .text.avrlibc   0x0000000000000160      0x3c2
  .text.avrlibc  0x0000000000000160      0x3c2 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(vfprintf_std.o)
                 0x0000000000000160                vfprintf
 
-.rodata         0x0000000000808522      0x325 load address 0x0000000000000522
- .rodata        0x0000000000808522      0x325 build/default/production/lr2.o
-
-.rodata         0x0000000000808847      0x310 load address 0x0000000000000847
- .rodata        0x0000000000808847      0x310 build/default/production/state.o
+.rodata         0x0000000000808522      0x304 load address 0x0000000000000522
+ .rodata        0x0000000000808522      0x304 build/default/production/lr2.o
 
 .text.BME280_compensatePressure
-                0x0000000000000b58      0x2b0
+                0x0000000000000826      0x2b0
  .text.BME280_compensatePressure
-                0x0000000000000b58      0x2b0 build/default/production/bme280.o
-                0x0000000000000b58                BME280_compensatePressure
+                0x0000000000000826      0x2b0 build/default/production/bme280.o
+                0x0000000000000826                BME280_compensatePressure
 
 .text.stateMachine
-                0x0000000000000e08      0x268
+                0x0000000000000ad6      0x252
  .text.stateMachine
-                0x0000000000000e08      0x268 build/default/production/state.o
-                0x0000000000000e08                stateMachine
+                0x0000000000000ad6      0x252 build/default/production/state.o
+                0x0000000000000ad6                stateMachine
 
-.text.formatPayload
-                0x0000000000001070      0x1fc
- .text.formatPayload
-                0x0000000000001070      0x1fc build/default/production/state.o
-                0x0000000000001070                formatPayload
+.rodata         0x0000000000808d28      0x249 load address 0x0000000000000d28
+ .rodata        0x0000000000808d28      0x249 build/default/production/state.o
 
 .text.BME280_compensateHumidity
-                0x000000000000126c      0x1f8
+                0x0000000000000f72      0x1f8
  .text.BME280_compensateHumidity
-                0x000000000000126c      0x1f8 build/default/production/bme280.o
-                0x000000000000126c                BME280_compensateHumidity
+                0x0000000000000f72      0x1f8 build/default/production/bme280.o
+                0x0000000000000f72                BME280_compensateHumidity
+
+.text.formatPayload
+                0x000000000000116a      0x1e0
+ .text.formatPayload
+                0x000000000000116a      0x1e0 build/default/production/state.o
+                0x000000000000116a                formatPayload
 
 .text.BME280_readFactoryCalibrationParams
-                0x0000000000001464      0x180
+                0x000000000000134a      0x180
  .text.BME280_readFactoryCalibrationParams
-                0x0000000000001464      0x180 build/default/production/bme280.o
-                0x0000000000001464                BME280_readFactoryCalibrationParams
+                0x000000000000134a      0x180 build/default/production/bme280.o
+                0x000000000000134a                BME280_readFactoryCalibrationParams
 
 .text.BME280_compensateTemperature
-                0x00000000000015e4      0x128
+                0x00000000000014ca      0x128
  .text.BME280_compensateTemperature
-                0x00000000000015e4      0x128 build/default/production/bme280.o
-                0x00000000000015e4                BME280_compensateTemperature
+                0x00000000000014ca      0x128 build/default/production/bme280.o
+                0x00000000000014ca                BME280_compensateTemperature
 
 .text.BME280_readMeasurements
-                0x000000000000170c      0x11e
+                0x00000000000015f2      0x11e
  .text.BME280_readMeasurements
-                0x000000000000170c      0x11e build/default/production/bme280.o
-                0x000000000000170c                BME280_readMeasurements
+                0x00000000000015f2      0x11e build/default/production/bme280.o
+                0x00000000000015f2                BME280_readMeasurements
 
 .text.PIN_MANAGER_Initialize
-                0x000000000000182a      0x10e
+                0x0000000000001710      0x10e
  .text.PIN_MANAGER_Initialize
-                0x000000000000182a      0x10e build/default/production/mcc_generated_files/system/src/pins.o
-                0x000000000000182a                PIN_MANAGER_Initialize
+                0x0000000000001710      0x10e build/default/production/mcc_generated_files/system/src/pins.o
+                0x0000000000001710                PIN_MANAGER_Initialize
 
 .text.avrlibc.fplib
-                0x0000000000001938       0xde
+                0x000000000000181e       0xde
  .text.avrlibc.fplib
-                0x0000000000001938       0xde c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(divsf3x.o)
-                0x0000000000001938                __divsf3x
-                0x0000000000001960                __divsf3_pse
+                0x000000000000181e       0xde c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(divsf3x.o)
+                0x000000000000181e                __divsf3x
+                0x0000000000001846                __divsf3_pse
 
 .text.printSensorData
-                0x0000000000001a16       0xd4
+                0x00000000000018fc       0xd4
  .text.printSensorData
-                0x0000000000001a16       0xd4 build/default/production/state.o
-                0x0000000000001a16                printSensorData
+                0x00000000000018fc       0xd4 build/default/production/state.o
+                0x00000000000018fc                printSensorData
 
 .text.avrlibc.fplib
-                0x0000000000001aea       0xd4
+                0x00000000000019d0       0xd4
  .text.avrlibc.fplib
-                0x0000000000001aea       0xd4 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(mulsf3x.o)
-                0x0000000000001aea                __mulsf3x
-                0x0000000000001b10                __mulsf3_pse
+                0x00000000000019d0       0xd4 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(mulsf3x.o)
+                0x00000000000019d0                __mulsf3x
+                0x00000000000019f6                __mulsf3_pse
 
 .text.avrlibc.fplib
-                0x0000000000001bbe       0xce
+                0x0000000000001aa4       0xce
  .text.avrlibc.fplib
-                0x0000000000001bbe       0xce c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(addsf3x.o)
-                0x0000000000001bbe                __addsf3x
+                0x0000000000001aa4       0xce c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(addsf3x.o)
+                0x0000000000001aa4                __addsf3x
 
-.text.Soil_Pulse
-                0x0000000000001c8c       0xc8
- .text.Soil_Pulse
-                0x0000000000001c8c       0xc8 build/default/production/state.o
-                0x0000000000001c8c                Soil_Pulse
-
-.text.avrlibc   0x0000000000001d54       0xbc
- .text.avrlibc  0x0000000000001d54       0xbc c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(ultoa_invert.o)
-                0x0000000000001d54                __ultoa_invert
+.text.avrlibc   0x0000000000001b72       0xbc
+ .text.avrlibc  0x0000000000001b72       0xbc c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(ultoa_invert.o)
+                0x0000000000001b72                __ultoa_invert
 
 .text.avrlibc.fplib
-                0x0000000000001e10       0xa2
+                0x0000000000001c2e       0xa2
  .text.avrlibc.fplib
-                0x0000000000001e10       0xa2 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(log.o)
-                0x0000000000001e10                log
+                0x0000000000001c2e       0xa2 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(log.o)
+                0x0000000000001c2e                log
 
 .text.avrlibc.fplib
-                0x0000000000001eb2       0xa0
+                0x0000000000001cd0       0xa0
  .text.avrlibc.fplib
-                0x0000000000001eb2       0xa0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(pow.o)
-                0x0000000000001eb2                pow
+                0x0000000000001cd0       0xa0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(pow.o)
+                0x0000000000001cd0                pow
 
 .text.BME280_getPressure
-                0x0000000000001f52       0x92
+                0x0000000000001d70       0x92
  .text.BME280_getPressure
-                0x0000000000001f52       0x92 build/default/production/bme280.o
-                0x0000000000001f52                BME280_getPressure
+                0x0000000000001d70       0x92 build/default/production/bme280.o
+                0x0000000000001d70                BME280_getPressure
 
 .text.TWI_sendAndReadBytes
-                0x0000000000001fe4       0x90
+                0x0000000000001e02       0x90
  .text.TWI_sendAndReadBytes
-                0x0000000000001fe4       0x90 build/default/production/TWI.o
-                0x0000000000001fe4                TWI_sendAndReadBytes
-
-.text.__vector_6
-                0x0000000000002074       0x80
- .text.__vector_6
-                0x0000000000002074       0x80 build/default/production/mcc_generated_files/system/src/pins.o
-                0x0000000000002074                __vector_6
-
-.text.__vector_24
-                0x00000000000020f4       0x80
- .text.__vector_24
-                0x00000000000020f4       0x80 build/default/production/mcc_generated_files/system/src/pins.o
-                0x00000000000020f4                __vector_24
-
-.text.avrlibc   0x0000000000002174       0x80
- .text.avrlibc  0x0000000000002174       0x80 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(puts.o)
-                0x0000000000002174                puts
-
-.text.avrlibc.fplib
-                0x00000000000021f4       0x7a
- .text.avrlibc.fplib
-                0x00000000000021f4       0x7a c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(floatsisf.o)
-                0x00000000000021f4                __floatunsisf
-                0x00000000000021f8                __floatsisf
-
-.text.avrlibc   0x000000000000226e       0x78
- .text.avrlibc  0x000000000000226e       0x78 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(fputc.o)
-                0x000000000000226e                fputc
-
-.text.avrlibc.fplib
-                0x00000000000022e6       0x76
- .text.avrlibc.fplib
-                0x00000000000022e6       0x76 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(exp.o)
-                0x00000000000022e6                exp
-
-.text.avrlibc.fplib
-                0x000000000000235c       0x76
- .text.avrlibc.fplib
-                0x000000000000235c       0x76 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(ldexp.o)
-                0x000000000000235c                ldexp
-
-.text.LR2_reset
-                0x00000000000023d2       0x74
- .text.LR2_reset
-                0x00000000000023d2       0x74 build/default/production/lr2.o
-                0x00000000000023d2                LR2_reset
-
-.text.__vector_7
-                0x0000000000002446       0x72
- .text.__vector_7
-                0x0000000000002446       0x72 build/default/production/mcc_generated_files/system/src/pins.o
-                0x0000000000002446                __vector_7
-
-.text.getSensorData
-                0x00000000000024b8       0x72
- .text.getSensorData
-                0x00000000000024b8       0x72 build/default/production/state.o
-                0x00000000000024b8                getSensorData
-
-.text.LR2_sendAppSKey
-                0x000000000000252a       0x6c
- .text.LR2_sendAppSKey
-                0x000000000000252a       0x6c build/default/production/lr2.o
-                0x000000000000252a                LR2_sendAppSKey
-
-.text.LR2_tx_buff_Push_Str
-                0x0000000000002596       0x68
- .text.LR2_tx_buff_Push_Str
-                0x0000000000002596       0x68 build/default/production/LR2_ringBuffer.o
-                0x0000000000002596                LR2_tx_buff_Push_Str
-
-.text.TERM_sendStringRaw
-                0x00000000000025fe       0x68
- .text.TERM_sendStringRaw
-                0x00000000000025fe       0x68 build/default/production/TERM_ringBuffer.o
-                0x00000000000025fe                TERM_sendStringRaw
-
-.text.avrlibc.fplib
-                0x0000000000002666       0x68
- .text.avrlibc.fplib
-                0x0000000000002666       0x68 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(modf.o)
-                0x0000000000002666                modf
-                0x0000000000002666                modff
-
-.text.BME280_initializeSensor
-                0x00000000000026ce       0x62
- .text.BME280_initializeSensor
-                0x00000000000026ce       0x62 build/default/production/bme280.o
-                0x00000000000026ce                BME280_initializeSensor
-
-.text.LR2_sendStringCmd
-                0x0000000000002730       0x60
- .text.LR2_sendStringCmd
-                0x0000000000002730       0x60 build/default/production/lr2.o
-                0x0000000000002730                LR2_sendStringCmd
-
-.text.avrlibc.fplib
-                0x0000000000002790       0x5e
- .text.avrlibc.fplib
-                0x0000000000002790       0x5e c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fixunssfsi.o)
-                0x0000000000002790                __fixunssfsi
-
-.text.__vector_13
-                0x00000000000027ee       0x5c
- .text.__vector_13
-                0x00000000000027ee       0x5c build/default/production/state.o
-                0x00000000000027ee                __vector_13
-
-.text.__vector_4
-                0x000000000000284a       0x5c
- .text.__vector_4
-                0x000000000000284a       0x5c build/default/production/state.o
-                0x000000000000284a                __vector_4
-
-.text.LR2_sendNwkSKey
-                0x00000000000028a6       0x5a
- .text.LR2_sendNwkSKey
-                0x00000000000028a6       0x5a build/default/production/lr2.o
-                0x00000000000028a6                LR2_sendNwkSKey
-
-.text.USART0_Initialize
-                0x0000000000002900       0x58
- .text.USART0_Initialize
-                0x0000000000002900       0x58 build/default/production/mcc_generated_files/uart/src/usart0.o
-                0x0000000000002900                USART0_Initialize
-
-.text._readFromTWI
-                0x0000000000002958       0x56
- .text._readFromTWI
-                0x0000000000002958       0x56 build/default/production/TWI.o
-                0x0000000000002958                _readFromTWI
-
-.text.__vector_25
-                0x00000000000029ae       0x54
- .text.__vector_25
-                0x00000000000029ae       0x54 build/default/production/state.o
-                0x00000000000029ae                __vector_25
+                0x0000000000001e02       0x90 build/default/production/TWI.o
+                0x0000000000001e02                TWI_sendAndReadBytes
 
 .text.LR2_config_abp
-                0x0000000000002a02       0x52
+                0x0000000000001e92       0x8a
  .text.LR2_config_abp
-                0x0000000000002a02       0x52 build/default/production/lr2.o
-                0x0000000000002a02                LR2_config_abp
+                0x0000000000001e92       0x8a build/default/production/lr2.o
+                0x0000000000001e92                LR2_config_abp
 
-.text._writeToTWI
-                0x0000000000002a54       0x4e
- .text._writeToTWI
-                0x0000000000002a54       0x4e build/default/production/TWI.o
-                0x0000000000002a54                _writeToTWI
+.text.LR2_reset
+                0x0000000000001f1c       0x84
+ .text.LR2_reset
+                0x0000000000001f1c       0x84 build/default/production/lr2.o
+                0x0000000000001f1c                LR2_reset
 
-.text.avrlibc.fplib
-                0x0000000000002aa2       0x4e
- .text.avrlibc.fplib
-                0x0000000000002aa2       0x4e c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_powser.o)
-                0x0000000000002aa2                __fp_powser
+.text.__vector_6
+                0x0000000000001fa0       0x80
+ .text.__vector_6
+                0x0000000000001fa0       0x80 build/default/production/mcc_generated_files/system/src/pins.o
+                0x0000000000001fa0                __vector_6
 
-.text.USART1_Initialize
-                0x0000000000002af0       0x4c
- .text.USART1_Initialize
-                0x0000000000002af0       0x4c build/default/production/mcc_generated_files/uart/src/usart1.o
-                0x0000000000002af0                USART1_Initialize
+.text.__vector_24
+                0x0000000000002020       0x80
+ .text.__vector_24
+                0x0000000000002020       0x80 build/default/production/mcc_generated_files/system/src/pins.o
+                0x0000000000002020                __vector_24
 
-.text._startTWI
-                0x0000000000002b3c       0x4a
- .text._startTWI
-                0x0000000000002b3c       0x4a build/default/production/TWI.o
-                0x0000000000002b3c                _startTWI
-
-.text.getMoistureMeasurement
-                0x0000000000002b86       0x46
- .text.getMoistureMeasurement
-                0x0000000000002b86       0x46 build/default/production/state.o
-                0x0000000000002b86                getMoistureMeasurement
+.text.avrlibc   0x00000000000020a0       0x80
+ .text.avrlibc  0x00000000000020a0       0x80 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(puts.o)
+                0x00000000000020a0                puts
 
 .text.avrlibc.fplib
-                0x0000000000002bcc       0x44
+                0x0000000000002120       0x7a
  .text.avrlibc.fplib
-                0x0000000000002bcc       0x44 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_split3.o)
-                0x0000000000002bcc                __fp_split3
-                0x0000000000002bdc                __fp_splitA
+                0x0000000000002120       0x7a c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(floatsisf.o)
+                0x0000000000002120                __floatunsisf
+                0x0000000000002124                __floatsisf
 
-.text.libgcc.div
-                0x0000000000002c10       0x44
- .text.libgcc.div
-                0x0000000000002c10       0x44 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_udivmodsi4.o)
-                0x0000000000002c10                __udivmodsi4
-
-.text.WeatherClick_initialize
-                0x0000000000002c54       0x3e
- .text.WeatherClick_initialize
-                0x0000000000002c54       0x3e build/default/production/state.o
-                0x0000000000002c54                WeatherClick_initialize
-
-.text.map       0x0000000000002c92       0x3c
- .text.map      0x0000000000002c92       0x3c build/default/production/state.o
-                0x0000000000002c92                map
-
-.text.TCB_init  0x0000000000002cce       0x36
- .text.TCB_init
-                0x0000000000002cce       0x36 build/default/production/main.o
-                0x0000000000002cce                TCB_init
-
-.text.BME280_startForcedSensing
-                0x0000000000002d04       0x34
- .text.BME280_startForcedSensing
-                0x0000000000002d04       0x34 build/default/production/bme280.o
-                0x0000000000002d04                BME280_startForcedSensing
-
-.text.PORT_init
-                0x0000000000002d38       0x32
- .text.PORT_init
-                0x0000000000002d38       0x32 build/default/production/main.o
-                0x0000000000002d38                PORT_init
-
-.text.main      0x0000000000002d6a       0x32
- .text.main     0x0000000000002d6a       0x32 build/default/production/main.o
-                0x0000000000002d6a                main
-
-.text.LR2_tx_cnf
-                0x0000000000002d9c       0x32
- .text.LR2_tx_cnf
-                0x0000000000002d9c       0x32 build/default/production/lr2.o
-                0x0000000000002d9c                LR2_tx_cnf
-
-.text.libgcc.prologue
-                0x0000000000002dce       0x32
- .text.libgcc.prologue
-                0x0000000000002dce       0x32 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_prologue.o)
-                0x0000000000002dce                __prologue_saves__
-
-.text.__vector_21
-                0x0000000000002e00       0x30
- .text.__vector_21
-                0x0000000000002e00       0x30 build/default/production/mcc_generated_files/adc/src/adc0.o
-                0x0000000000002e00                __vector_21
-
-.text.libgcc.prologue
-                0x0000000000002e30       0x30
- .text.libgcc.prologue
-                0x0000000000002e30       0x30 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_epilogue.o)
-                0x0000000000002e30                __epilogue_restores__
-
-.text.avrlibc   0x0000000000002e60       0x2c
- .text.avrlibc  0x0000000000002e60       0x2c c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(printf.o)
-                0x0000000000002e60                printf
-
-.text.TWI_sendBytes
-                0x0000000000002e8c       0x2a
- .text.TWI_sendBytes
-                0x0000000000002e8c       0x2a build/default/production/TWI.o
-                0x0000000000002e8c                TWI_sendBytes
-
-.text.BME280_reset
-                0x0000000000002eb6       0x2a
- .text.BME280_reset
-                0x0000000000002eb6       0x2a build/default/production/bme280.o
-                0x0000000000002eb6                BME280_reset
-
-.text.Init_TCA  0x0000000000002ee0       0x28
- .text.Init_TCA
-                0x0000000000002ee0       0x28 build/default/production/main.o
-                0x0000000000002ee0                Init_TCA
-
-.text.Read_ADC  0x0000000000002f08       0x24
- .text.Read_ADC
-                0x0000000000002f08       0x24 build/default/production/state.o
-                0x0000000000002f08                Read_ADC
-
-.text.getBatteryLevel
-                0x0000000000002f2c       0x24
- .text.getBatteryLevel
-                0x0000000000002f2c       0x24 build/default/production/state.o
-                0x0000000000002f2c                getBatteryLevel
-
-.text.Init_ADC  0x0000000000002f50       0x22
- .text.Init_ADC
-                0x0000000000002f50       0x22 build/default/production/main.o
-                0x0000000000002f50                Init_ADC
-
-.text.LR2_join_abp
-                0x0000000000002f72       0x22
- .text.LR2_join_abp
-                0x0000000000002f72       0x22 build/default/production/lr2.o
-                0x0000000000002f72                LR2_join_abp
+.text.avrlibc   0x000000000000219a       0x78
+ .text.avrlibc  0x000000000000219a       0x78 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(fputc.o)
+                0x000000000000219a                fputc
 
 .text.avrlibc.fplib
-                0x0000000000002f94       0x22
+                0x0000000000002212       0x76
  .text.avrlibc.fplib
-                0x0000000000002f94       0x22 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_round.o)
-                0x0000000000002f94                __fp_round
-
-.text.libgcc.mul
-                0x0000000000002fb6       0x20
- .text.libgcc.mul
-                0x0000000000002fb6       0x20 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_mulsi3.o)
-                0x0000000000002fb6                __mulsi3
-
-.text.__vector_23
-                0x0000000000002fd6       0x1e
- .text.__vector_23
-                0x0000000000002fd6       0x1e build/default/production/mcc_generated_files/adc/src/adc0.o
-                0x0000000000002fd6                __vector_23
-
-.text.__vector_22
-                0x0000000000002ff4       0x1e
- .text.__vector_22
-                0x0000000000002ff4       0x1e build/default/production/mcc_generated_files/adc/src/adc0.o
-                0x0000000000002ff4                __vector_22
-
-.text.BME280_config
-                0x0000000000003012       0x1e
- .text.BME280_config
-                0x0000000000003012       0x1e build/default/production/bme280.o
-                0x0000000000003012                BME280_config
-
-.text.libgcc.mul
-                0x0000000000003030       0x1e
- .text.libgcc.mul
-                0x0000000000003030       0x1e c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_umulhisi3.o)
-                0x0000000000003030                __umulhisi3
-
-.text.isTWIBad  0x000000000000304e       0x1c
- .text.isTWIBad
-                0x000000000000304e       0x1c build/default/production/TWI.o
-                0x000000000000304e                isTWIBad
-
-.text.TWI_initHost
-                0x000000000000306a       0x1c
- .text.TWI_initHost
-                0x000000000000306a       0x1c build/default/production/TWI.o
-                0x000000000000306a                TWI_initHost
-
-.text.BUTTON_releaseCallback
-                0x0000000000003086       0x1c
- .text.BUTTON_releaseCallback
-                0x0000000000003086       0x1c build/default/production/state.o
-                0x0000000000003086                BUTTON_releaseCallback
-
-.text.TERM_sendByte
-                0x00000000000030a2       0x1c
- .text.TERM_sendByte
-                0x00000000000030a2       0x1c build/default/production/TERM_ringBuffer.o
-                0x00000000000030a2                TERM_sendByte
+                0x0000000000002212       0x76 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(exp.o)
+                0x0000000000002212                exp
 
 .text.avrlibc.fplib
-                0x00000000000030be       0x1c
+                0x0000000000002288       0x76
  .text.avrlibc.fplib
-                0x00000000000030be       0x1c c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_mpack.o)
-                0x00000000000030be                __fp_mpack
-                0x00000000000030c2                __fp_mpack_finite
+                0x0000000000002288       0x76 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(ldexp.o)
+                0x0000000000002288                ldexp
+
+.text.__vector_7
+                0x00000000000022fe       0x72
+ .text.__vector_7
+                0x00000000000022fe       0x72 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000022fe                __vector_7
+
+.text.LR2_sendAppSKey
+                0x0000000000002370       0x68
+ .text.LR2_sendAppSKey
+                0x0000000000002370       0x68 build/default/production/lr2.o
+                0x0000000000002370                LR2_sendAppSKey
+
+.text.LR2_tx_buff_Push_Str
+                0x00000000000023d8       0x68
+ .text.LR2_tx_buff_Push_Str
+                0x00000000000023d8       0x68 build/default/production/LR2_ringBuffer.o
+                0x00000000000023d8                LR2_tx_buff_Push_Str
+
+.text.TERM_sendStringRaw
+                0x0000000000002440       0x68
+ .text.TERM_sendStringRaw
+                0x0000000000002440       0x68 build/default/production/TERM_ringBuffer.o
+                0x0000000000002440                TERM_sendStringRaw
+
+.text.avrlibc.fplib
+                0x00000000000024a8       0x68
+ .text.avrlibc.fplib
+                0x00000000000024a8       0x68 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(modf.o)
+                0x00000000000024a8                modf
+                0x00000000000024a8                modff
+
+.text.BME280_initializeSensor
+                0x0000000000002510       0x62
+ .text.BME280_initializeSensor
+                0x0000000000002510       0x62 build/default/production/bme280.o
+                0x0000000000002510                BME280_initializeSensor
+
+.text.LR2_sendStringCmd
+                0x0000000000002572       0x5e
+ .text.LR2_sendStringCmd
+                0x0000000000002572       0x5e build/default/production/lr2.o
+                0x0000000000002572                LR2_sendStringCmd
+
+.text.avrlibc.fplib
+                0x00000000000025d0       0x5e
+ .text.avrlibc.fplib
+                0x00000000000025d0       0x5e c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fixunssfsi.o)
+                0x00000000000025d0                __fixunssfsi
+
+.text.__vector_13
+                0x000000000000262e       0x5c
+ .text.__vector_13
+                0x000000000000262e       0x5c build/default/production/state.o
+                0x000000000000262e                __vector_13
+
+.text.__vector_4
+                0x000000000000268a       0x5c
+ .text.__vector_4
+                0x000000000000268a       0x5c build/default/production/state.o
+                0x000000000000268a                __vector_4
+
+.text.USART0_Initialize
+                0x00000000000026e6       0x58
+ .text.USART0_Initialize
+                0x00000000000026e6       0x58 build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x00000000000026e6                USART0_Initialize
+
+.text.LR2_sendNwkSKey
+                0x000000000000273e       0x58
+ .text.LR2_sendNwkSKey
+                0x000000000000273e       0x58 build/default/production/lr2.o
+                0x000000000000273e                LR2_sendNwkSKey
 
 .text.CLOCK_Initialize
-                0x00000000000030da       0x1a
+                0x0000000000002796       0x56
  .text.CLOCK_Initialize
-                0x00000000000030da       0x1a build/default/production/mcc_generated_files/system/src/clock.o
-                0x00000000000030da                CLOCK_Initialize
+                0x0000000000002796       0x56 build/default/production/mcc_generated_files/system/src/clock.o
+                0x0000000000002796                CLOCK_Initialize
+
+.text._readFromTWI
+                0x00000000000027ec       0x56
+ .text._readFromTWI
+                0x00000000000027ec       0x56 build/default/production/TWI.o
+                0x00000000000027ec                _readFromTWI
+
+.text.__vector_25
+                0x0000000000002842       0x54
+ .text.__vector_25
+                0x0000000000002842       0x54 build/default/production/state.o
+                0x0000000000002842                __vector_25
+
+.text.sendAndReceiveBuffers
+                0x0000000000002896       0x52
+ .text.sendAndReceiveBuffers
+                0x0000000000002896       0x52 build/default/production/state.o
+                0x0000000000002896                sendAndReceiveBuffers
+
+.text._writeToTWI
+                0x00000000000028e8       0x4e
+ .text._writeToTWI
+                0x00000000000028e8       0x4e build/default/production/TWI.o
+                0x00000000000028e8                _writeToTWI
+
+.text.avrlibc.fplib
+                0x0000000000002936       0x4e
+ .text.avrlibc.fplib
+                0x0000000000002936       0x4e c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_powser.o)
+                0x0000000000002936                __fp_powser
+
+.text.USART1_Initialize
+                0x0000000000002984       0x4c
+ .text.USART1_Initialize
+                0x0000000000002984       0x4c build/default/production/mcc_generated_files/uart/src/usart1.o
+                0x0000000000002984                USART1_Initialize
+
+.text._startTWI
+                0x00000000000029d0       0x4a
+ .text._startTWI
+                0x00000000000029d0       0x4a build/default/production/TWI.o
+                0x00000000000029d0                _startTWI
+
+.text.getSensorData
+                0x0000000000002a1a       0x44
+ .text.getSensorData
+                0x0000000000002a1a       0x44 build/default/production/state.o
+                0x0000000000002a1a                getSensorData
+
+.text.avrlibc.fplib
+                0x0000000000002a5e       0x44
+ .text.avrlibc.fplib
+                0x0000000000002a5e       0x44 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_split3.o)
+                0x0000000000002a5e                __fp_split3
+                0x0000000000002a6e                __fp_splitA
+
+.text.libgcc.div
+                0x0000000000002aa2       0x44
+ .text.libgcc.div
+                0x0000000000002aa2       0x44 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_udivmodsi4.o)
+                0x0000000000002aa2                __udivmodsi4
+
+.text.LR2_recvRsp
+                0x0000000000002ae6       0x3c
+ .text.LR2_recvRsp
+                0x0000000000002ae6       0x3c build/default/production/lr2.o
+                0x0000000000002ae6                LR2_recvRsp
+
+.text.LR2_tx_cnf
+                0x0000000000002b22       0x38
+ .text.LR2_tx_cnf
+                0x0000000000002b22       0x38 build/default/production/lr2.o
+                0x0000000000002b22                LR2_tx_cnf
+
+.text.LR2_tx_uncnf
+                0x0000000000002b5a       0x38
+ .text.LR2_tx_uncnf
+                0x0000000000002b5a       0x38 build/default/production/lr2.o
+                0x0000000000002b5a                LR2_tx_uncnf
+
+.text.TCB_init  0x0000000000002b92       0x36
+ .text.TCB_init
+                0x0000000000002b92       0x36 build/default/production/main.o
+                0x0000000000002b92                TCB_init
+
+.text.WeatherClick_initialize
+                0x0000000000002bc8       0x36
+ .text.WeatherClick_initialize
+                0x0000000000002bc8       0x36 build/default/production/state.o
+                0x0000000000002bc8                WeatherClick_initialize
+
+.text.BME280_startForcedSensing
+                0x0000000000002bfe       0x34
+ .text.BME280_startForcedSensing
+                0x0000000000002bfe       0x34 build/default/production/bme280.o
+                0x0000000000002bfe                BME280_startForcedSensing
+
+.text.ADC0_Initialize
+                0x0000000000002c32       0x32
+ .text.ADC0_Initialize
+                0x0000000000002c32       0x32 build/default/production/mcc_generated_files/adc/src/adc0.o
+                0x0000000000002c32                ADC0_Initialize
+
+.text.libgcc.prologue
+                0x0000000000002c64       0x32
+ .text.libgcc.prologue
+                0x0000000000002c64       0x32 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_prologue.o)
+                0x0000000000002c64                __prologue_saves__
+
+.text.__vector_21
+                0x0000000000002c96       0x30
+ .text.__vector_21
+                0x0000000000002c96       0x30 build/default/production/mcc_generated_files/adc/src/adc0.o
+                0x0000000000002c96                __vector_21
+
+.text.libgcc.prologue
+                0x0000000000002cc6       0x30
+ .text.libgcc.prologue
+                0x0000000000002cc6       0x30 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_epilogue.o)
+                0x0000000000002cc6                __epilogue_restores__
+
+.text.avrlibc   0x0000000000002cf6       0x2c
+ .text.avrlibc  0x0000000000002cf6       0x2c c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(printf.o)
+                0x0000000000002cf6                printf
+
+.text.TWI_sendBytes
+                0x0000000000002d22       0x2a
+ .text.TWI_sendBytes
+                0x0000000000002d22       0x2a build/default/production/TWI.o
+                0x0000000000002d22                TWI_sendBytes
+
+.text.BME280_reset
+                0x0000000000002d4c       0x2a
+ .text.BME280_reset
+                0x0000000000002d4c       0x2a build/default/production/bme280.o
+                0x0000000000002d4c                BME280_reset
+
+.text.LR2_tx_buff_Push
+                0x0000000000002d76       0x2a
+ .text.LR2_tx_buff_Push
+                0x0000000000002d76       0x2a build/default/production/LR2_ringBuffer.o
+                0x0000000000002d76                LR2_tx_buff_Push
+
+.text.TERM_tx_buff_Push
+                0x0000000000002da0       0x2a
+ .text.TERM_tx_buff_Push
+                0x0000000000002da0       0x2a build/default/production/TERM_ringBuffer.o
+                0x0000000000002da0                TERM_tx_buff_Push
+
+.text.main      0x0000000000002dca       0x24
+ .text.main     0x0000000000002dca       0x24 build/default/production/main.o
+                0x0000000000002dca                main
+
+.text.getBatteryLevel
+                0x0000000000002dee       0x24
+ .text.getBatteryLevel
+                0x0000000000002dee       0x24 build/default/production/state.o
+                0x0000000000002dee                getBatteryLevel
+
+.text.avrlibc.fplib
+                0x0000000000002e12       0x22
+ .text.avrlibc.fplib
+                0x0000000000002e12       0x22 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_round.o)
+                0x0000000000002e12                __fp_round
+
+.text.libgcc.mul
+                0x0000000000002e34       0x20
+ .text.libgcc.mul
+                0x0000000000002e34       0x20 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_mulsi3.o)
+                0x0000000000002e34                __mulsi3
+
+.text.__vector_23
+                0x0000000000002e54       0x1e
+ .text.__vector_23
+                0x0000000000002e54       0x1e build/default/production/mcc_generated_files/adc/src/adc0.o
+                0x0000000000002e54                __vector_23
+
+.text.__vector_22
+                0x0000000000002e72       0x1e
+ .text.__vector_22
+                0x0000000000002e72       0x1e build/default/production/mcc_generated_files/adc/src/adc0.o
+                0x0000000000002e72                __vector_22
 
 .text.SYSTEM_Initialize
-                0x00000000000030f4       0x1a
+                0x0000000000002e90       0x1e
  .text.SYSTEM_Initialize
-                0x00000000000030f4       0x1a build/default/production/mcc_generated_files/system/src/system.o
-                0x00000000000030f4                SYSTEM_Initialize
+                0x0000000000002e90       0x1e build/default/production/mcc_generated_files/system/src/system.o
+                0x0000000000002e90                SYSTEM_Initialize
+
+.text.PORT_init
+                0x0000000000002eae       0x1e
+ .text.PORT_init
+                0x0000000000002eae       0x1e build/default/production/main.o
+                0x0000000000002eae                PORT_init
+
+.text.BME280_config
+                0x0000000000002ecc       0x1e
+ .text.BME280_config
+                0x0000000000002ecc       0x1e build/default/production/bme280.o
+                0x0000000000002ecc                BME280_config
+
+.text.LR2_join_abp
+                0x0000000000002eea       0x1e
+ .text.LR2_join_abp
+                0x0000000000002eea       0x1e build/default/production/lr2.o
+                0x0000000000002eea                LR2_join_abp
+
+.text.libgcc.mul
+                0x0000000000002f08       0x1e
+ .text.libgcc.mul
+                0x0000000000002f08       0x1e c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_umulhisi3.o)
+                0x0000000000002f08                __umulhisi3
+
+.text.isTWIBad  0x0000000000002f26       0x1c
+ .text.isTWIBad
+                0x0000000000002f26       0x1c build/default/production/TWI.o
+                0x0000000000002f26                isTWIBad
+
+.text.TWI_initHost
+                0x0000000000002f42       0x1c
+ .text.TWI_initHost
+                0x0000000000002f42       0x1c build/default/production/TWI.o
+                0x0000000000002f42                TWI_initHost
+
+.text.TERM_sendByte
+                0x0000000000002f5e       0x1c
+ .text.TERM_sendByte
+                0x0000000000002f5e       0x1c build/default/production/TERM_ringBuffer.o
+                0x0000000000002f5e                TERM_sendByte
+
+.text.avrlibc.fplib
+                0x0000000000002f7a       0x1c
+ .text.avrlibc.fplib
+                0x0000000000002f7a       0x1c c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_mpack.o)
+                0x0000000000002f7a                __fp_mpack
+                0x0000000000002f7e                __fp_mpack_finite
 
 .text.CPUINT_Initialize
-                0x000000000000310e       0x18
+                0x0000000000002f96       0x18
  .text.CPUINT_Initialize
-                0x000000000000310e       0x18 build/default/production/mcc_generated_files/system/src/interrupt.o
-                0x000000000000310e                CPUINT_Initialize
+                0x0000000000002f96       0x18 build/default/production/mcc_generated_files/system/src/interrupt.o
+                0x0000000000002f96                CPUINT_Initialize
 
 .text.USART0_printCHAR
-                0x0000000000003126       0x18
+                0x0000000000002fae       0x18
  .text.USART0_printCHAR
-                0x0000000000003126       0x18 build/default/production/mcc_generated_files/uart/src/usart0.o
-                0x0000000000003126                USART0_printCHAR
+                0x0000000000002fae       0x18 build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x0000000000002fae                USART0_printCHAR
 
-.text.Init_PIT  0x000000000000313e       0x18
+.text.Init_PIT  0x0000000000002fc6       0x18
  .text.Init_PIT
-                0x000000000000313e       0x18 build/default/production/main.o
-                0x000000000000313e                Init_PIT
+                0x0000000000002fc6       0x18 build/default/production/main.o
+                0x0000000000002fc6                Init_PIT
 
 .text.BME280_ctrl_meas
-                0x0000000000003156       0x18
+                0x0000000000002fde       0x18
  .text.BME280_ctrl_meas
-                0x0000000000003156       0x18 build/default/production/bme280.o
-                0x0000000000003156                BME280_ctrl_meas
+                0x0000000000002fde       0x18 build/default/production/bme280.o
+                0x0000000000002fde                BME280_ctrl_meas
 
 .text.BME280_getTemperature
-                0x000000000000316e       0x16
+                0x0000000000002ff6       0x16
  .text.BME280_getTemperature
-                0x000000000000316e       0x16 build/default/production/bme280.o
-                0x000000000000316e                BME280_getTemperature
+                0x0000000000002ff6       0x16 build/default/production/bme280.o
+                0x0000000000002ff6                BME280_getTemperature
 
 .text.BME280_getHumidity
-                0x0000000000003184       0x16
+                0x000000000000300c       0x16
  .text.BME280_getHumidity
-                0x0000000000003184       0x16 build/default/production/bme280.o
-                0x0000000000003184                BME280_getHumidity
+                0x000000000000300c       0x16 build/default/production/bme280.o
+                0x000000000000300c                BME280_getHumidity
 
 .text.LR2_tx_buff_Pop
-                0x000000000000319a       0x16
+                0x0000000000003022       0x16
  .text.LR2_tx_buff_Pop
-                0x000000000000319a       0x16 build/default/production/LR2_ringBuffer.o
-                0x000000000000319a                LR2_tx_buff_Pop
+                0x0000000000003022       0x16 build/default/production/LR2_ringBuffer.o
+                0x0000000000003022                LR2_tx_buff_Pop
+
+.text.TERM_tx_buff_Pop
+                0x0000000000003038       0x16
+ .text.TERM_tx_buff_Pop
+                0x0000000000003038       0x16 build/default/production/TERM_ringBuffer.o
+                0x0000000000003038                TERM_tx_buff_Pop
 
 .text.libgcc.mul
-                0x00000000000031b0       0x16
+                0x000000000000304e       0x16
  .text.libgcc.mul
-                0x00000000000031b0       0x16 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_muluhisi3.o)
-                0x00000000000031b0                __muluhisi3
+                0x000000000000304e       0x16 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_muluhisi3.o)
+                0x000000000000304e                __muluhisi3
 
-.text.avrlibc   0x00000000000031c6       0x16
- .text.avrlibc  0x00000000000031c6       0x16 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(strnlen_P.o)
-                0x00000000000031c6                strnlen_P
+.text.avrlibc   0x0000000000003064       0x16
+ .text.avrlibc  0x0000000000003064       0x16 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(strnlen_P.o)
+                0x0000000000003064                strnlen_P
 
-.text.avrlibc   0x00000000000031dc       0x16
- .text.avrlibc  0x00000000000031dc       0x16 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(strnlen.o)
-                0x00000000000031dc                strnlen
+.text.avrlibc   0x000000000000307a       0x16
+ .text.avrlibc  0x000000000000307a       0x16 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(strnlen.o)
+                0x000000000000307a                strnlen
+
+.text.BUTTON_releaseCallback
+                0x0000000000003090       0x14
+ .text.BUTTON_releaseCallback
+                0x0000000000003090       0x14 build/default/production/state.o
+                0x0000000000003090                BUTTON_releaseCallback
 
 .text.configureTWIPins
-                0x00000000000031f2       0x10
+                0x00000000000030a4       0x10
  .text.configureTWIPins
-                0x00000000000031f2       0x10 build/default/production/TWI.o
-                0x00000000000031f2                configureTWIPins
+                0x00000000000030a4       0x10 build/default/production/TWI.o
+                0x00000000000030a4                configureTWIPins
 
 .text.avrlibc.fplib
-                0x0000000000003202       0x10
+                0x00000000000030b4       0x10
  .text.avrlibc.fplib
-                0x0000000000003202       0x10 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(inverse.o)
-                0x0000000000003202                inverse
+                0x00000000000030b4       0x10 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(inverse.o)
+                0x00000000000030b4                inverse
 
 .text.libgcc.mul
-                0x0000000000003212       0x10
+                0x00000000000030c4       0x10
  .text.libgcc.mul
-                0x0000000000003212       0x10 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_mulshisi3.o)
-                0x0000000000003212                __mulshisi3
-                0x0000000000003218                __mulohisi3
+                0x00000000000030c4       0x10 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_mulshisi3.o)
+                0x00000000000030c4                __mulshisi3
+                0x00000000000030ca                __mulohisi3
 
 .text.EVSYS_init
-                0x0000000000003222        0xe
+                0x00000000000030d4        0xe
  .text.EVSYS_init
-                0x0000000000003222        0xe build/default/production/main.o
-                0x0000000000003222                EVSYS_init
+                0x00000000000030d4        0xe build/default/production/main.o
+                0x00000000000030d4                EVSYS_init
 
 .text.avrlibc.fplib
-                0x0000000000003230        0xe
+                0x00000000000030e2        0xe
  .text.avrlibc.fplib
-                0x0000000000003230        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(addsf3.o)
-                0x0000000000003230                __subsf3
-                0x0000000000003232                __addsf3
+                0x00000000000030e2        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(addsf3.o)
+                0x00000000000030e2                __subsf3
+                0x00000000000030e4                __addsf3
 
 .text.avrlibc.fplib
-                0x000000000000323e        0xe
+                0x00000000000030f0        0xe
  .text.avrlibc.fplib
-                0x000000000000323e        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fixsfsi.o)
-                0x000000000000323e                __fixsfsi
+                0x00000000000030f0        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fixsfsi.o)
+                0x00000000000030f0                __fixsfsi
 
 .text.avrlibc.fplib
-                0x000000000000324c        0xe
+                0x00000000000030fe        0xe
  .text.avrlibc.fplib
-                0x000000000000324c        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_pscA.o)
-                0x000000000000324c                __fp_pscA
+                0x00000000000030fe        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_pscA.o)
+                0x00000000000030fe                __fp_pscA
 
 .text.avrlibc.fplib
-                0x000000000000325a        0xe
+                0x000000000000310c        0xe
  .text.avrlibc.fplib
-                0x000000000000325a        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_pscB.o)
-                0x000000000000325a                __fp_pscB
+                0x000000000000310c        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_pscB.o)
+                0x000000000000310c                __fp_pscB
 
 .text.avrlibc.fplib
-                0x0000000000003268        0xe
+                0x000000000000311a        0xe
  .text.avrlibc.fplib
-                0x0000000000003268        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_zero.o)
-                0x0000000000003268                __fp_zero
-                0x000000000000326a                __fp_szero
+                0x000000000000311a        0xe c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_zero.o)
+                0x000000000000311a                __fp_zero
+                0x000000000000311c                __fp_szero
+
+.text.USART0_IsRxReady
+                0x0000000000003128        0xc
+ .text.USART0_IsRxReady
+                0x0000000000003128        0xc build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x0000000000003128                USART0_IsRxReady
 
 .text.USART0_IsTxReady
-                0x0000000000003276        0xc
+                0x0000000000003134        0xc
  .text.USART0_IsTxReady
-                0x0000000000003276        0xc build/default/production/mcc_generated_files/uart/src/usart0.o
-                0x0000000000003276                USART0_IsTxReady
+                0x0000000000003134        0xc build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x0000000000003134                USART0_IsTxReady
 
 .text.USART0_IsTxDone
-                0x0000000000003282        0xc
+                0x0000000000003140        0xc
  .text.USART0_IsTxDone
-                0x0000000000003282        0xc build/default/production/mcc_generated_files/uart/src/usart0.o
-                0x0000000000003282                USART0_IsTxDone
+                0x0000000000003140        0xc build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x0000000000003140                USART0_IsTxDone
+
+.text.USART1_IsRxReady
+                0x000000000000314c        0xc
+ .text.USART1_IsRxReady
+                0x000000000000314c        0xc build/default/production/mcc_generated_files/uart/src/usart1.o
+                0x000000000000314c                USART1_IsRxReady
 
 .text.USART1_IsTxReady
-                0x000000000000328e        0xc
+                0x0000000000003158        0xc
  .text.USART1_IsTxReady
-                0x000000000000328e        0xc build/default/production/mcc_generated_files/uart/src/usart1.o
-                0x000000000000328e                USART1_IsTxReady
+                0x0000000000003158        0xc build/default/production/mcc_generated_files/uart/src/usart1.o
+                0x0000000000003158                USART1_IsTxReady
 
 .text.VREF_Initialize
-                0x000000000000329a        0xc
+                0x0000000000003164        0xc
  .text.VREF_Initialize
-                0x000000000000329a        0xc build/default/production/mcc_generated_files/vref/src/vref.o
-                0x000000000000329a                VREF_Initialize
+                0x0000000000003164        0xc build/default/production/mcc_generated_files/vref/src/vref.o
+                0x0000000000003164                VREF_Initialize
+
+.text.LR2_tx_buff_Count
+                0x0000000000003170        0xc
+ .text.LR2_tx_buff_Count
+                0x0000000000003170        0xc build/default/production/LR2_ringBuffer.o
+                0x0000000000003170                LR2_tx_buff_Count
+
+.text.TERM_tx_buff_Count
+                0x000000000000317c        0xc
+ .text.TERM_tx_buff_Count
+                0x000000000000317c        0xc build/default/production/TERM_ringBuffer.o
+                0x000000000000317c                TERM_tx_buff_Count
 
 .text.avrlibc.fplib
-                0x00000000000032a6        0xc
+                0x0000000000003188        0xc
  .text.avrlibc.fplib
-                0x00000000000032a6        0xc c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_inf.o)
-                0x00000000000032a6                __fp_inf
+                0x0000000000003188        0xc c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_inf.o)
+                0x0000000000003188                __fp_inf
 
 .text.WeatherClick_readSensors
-                0x00000000000032b2        0xa
+                0x0000000000003194        0xa
  .text.WeatherClick_readSensors
-                0x00000000000032b2        0xa build/default/production/state.o
-                0x00000000000032b2                WeatherClick_readSensors
+                0x0000000000003194        0xa build/default/production/state.o
+                0x0000000000003194                WeatherClick_readSensors
 
 .text.protected_write_io
-                0x00000000000032bc        0x8
+                0x000000000000319e        0x8
  .text.protected_write_io
-                0x00000000000032bc        0x8 build/default/production/mcc_generated_files/system/src/protected_io.o
-                0x00000000000032bc                protected_write_io
+                0x000000000000319e        0x8 build/default/production/mcc_generated_files/system/src/protected_io.o
+                0x000000000000319e                protected_write_io
 
 .text.avrlibc.fplib
-                0x00000000000032c4        0x8
+                0x00000000000031a6        0x8
  .text.avrlibc.fplib
-                0x00000000000032c4        0x8 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(divsf3.o)
-                0x00000000000032c4                __divsf3
+                0x00000000000031a6        0x8 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(divsf3.o)
+                0x00000000000031a6                __divsf3
 
 .text.avrlibc.fplib
-                0x00000000000032cc        0x8
+                0x00000000000031ae        0x8
  .text.avrlibc.fplib
-                0x00000000000032cc        0x8 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(mulsf3.o)
-                0x00000000000032cc                __mulsf3
+                0x00000000000031ae        0x8 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(mulsf3.o)
+                0x00000000000031ae                __mulsf3
+
+.text.USART0_Read
+                0x00000000000031b6        0x6
+ .text.USART0_Read
+                0x00000000000031b6        0x6 build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x00000000000031b6                USART0_Read
+
+.text.USART0_Write
+                0x00000000000031bc        0x6
+ .text.USART0_Write
+                0x00000000000031bc        0x6 build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x00000000000031bc                USART0_Write
+
+.text.USART1_Read
+                0x00000000000031c2        0x6
+ .text.USART1_Read
+                0x00000000000031c2        0x6 build/default/production/mcc_generated_files/uart/src/usart1.o
+                0x00000000000031c2                USART1_Read
 
 .text.USART1_Write
-                0x00000000000032d4        0x6
+                0x00000000000031c8        0x6
  .text.USART1_Write
-                0x00000000000032d4        0x6 build/default/production/mcc_generated_files/uart/src/usart1.o
-                0x00000000000032d4                USART1_Write
+                0x00000000000031c8        0x6 build/default/production/mcc_generated_files/uart/src/usart1.o
+                0x00000000000031c8                USART1_Write
 
 .text.BME280_ctrl_hum
-                0x00000000000032da        0x6
+                0x00000000000031ce        0x6
  .text.BME280_ctrl_hum
-                0x00000000000032da        0x6 build/default/production/bme280.o
-                0x00000000000032da                BME280_ctrl_hum
+                0x00000000000031ce        0x6 build/default/production/bme280.o
+                0x00000000000031ce                BME280_ctrl_hum
 
 .text.LR2_config
-                0x00000000000032e0        0x6
+                0x00000000000031d4        0x6
  .text.LR2_config
-                0x00000000000032e0        0x6 build/default/production/lr2.o
-                0x00000000000032e0                LR2_config
+                0x00000000000031d4        0x6 build/default/production/lr2.o
+                0x00000000000031d4                LR2_config
 
-.text.LR2_join  0x00000000000032e6        0x6
+.text.LR2_join  0x00000000000031da        0x6
  .text.LR2_join
-                0x00000000000032e6        0x6 build/default/production/lr2.o
-                0x00000000000032e6                LR2_join
+                0x00000000000031da        0x6 build/default/production/lr2.o
+                0x00000000000031da                LR2_join
 
 .text.avrlibc.fplib
-                0x00000000000032ec        0x6
+                0x00000000000031e0        0x6
  .text.avrlibc.fplib
-                0x00000000000032ec        0x6 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_nan.o)
-                0x00000000000032ec                __fp_nan
+                0x00000000000031e0        0x6 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a(fp_nan.o)
+                0x00000000000031e0                __fp_nan
 
-.text           0x00000000000032f2        0x4
- .text          0x00000000000032f2        0x4 C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny3226.o
-                0x00000000000032f2                __vector_28
-                0x00000000000032f2                __vector_1
-                0x00000000000032f2                __vector_12
-                0x00000000000032f2                __bad_interrupt
-                0x00000000000032f2                __vector_3
-                0x00000000000032f2                __vector_11
-                0x00000000000032f2                __vector_17
-                0x00000000000032f2                __vector_19
-                0x00000000000032f2                __vector_27
-                0x00000000000032f2                __vector_5
-                0x00000000000032f2                __vector_9
-                0x00000000000032f2                __vector_2
-                0x00000000000032f2                __vector_15
-                0x00000000000032f2                __vector_29
-                0x00000000000032f2                __vector_8
-                0x00000000000032f2                __vector_26
-                0x00000000000032f2                __vector_14
-                0x00000000000032f2                __vector_10
-                0x00000000000032f2                __vector_16
-                0x00000000000032f2                __vector_18
-                0x00000000000032f2                __vector_20
+.text           0x00000000000031e6        0x4
+ .text          0x00000000000031e6        0x4 C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny3226.o
+                0x00000000000031e6                __vector_28
+                0x00000000000031e6                __vector_1
+                0x00000000000031e6                __vector_12
+                0x00000000000031e6                __bad_interrupt
+                0x00000000000031e6                __vector_3
+                0x00000000000031e6                __vector_11
+                0x00000000000031e6                __vector_17
+                0x00000000000031e6                __vector_19
+                0x00000000000031e6                __vector_27
+                0x00000000000031e6                __vector_5
+                0x00000000000031e6                __vector_9
+                0x00000000000031e6                __vector_2
+                0x00000000000031e6                __vector_15
+                0x00000000000031e6                __vector_29
+                0x00000000000031e6                __vector_8
+                0x00000000000031e6                __vector_26
+                0x00000000000031e6                __vector_14
+                0x00000000000031e6                __vector_10
+                0x00000000000031e6                __vector_16
+                0x00000000000031e6                __vector_18
+                0x00000000000031e6                __vector_20
 
 .text.PA7_DefaultInterruptHandler
-                0x00000000000032f6        0x2
+                0x00000000000031ea        0x2
  .text.PA7_DefaultInterruptHandler
-                0x00000000000032f6        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x00000000000032f6                PA7_DefaultInterruptHandler
+                0x00000000000031ea        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031ea                PA7_DefaultInterruptHandler
 
 .text.PA2_DefaultInterruptHandler
-                0x00000000000032f8        0x2
+                0x00000000000031ec        0x2
  .text.PA2_DefaultInterruptHandler
-                0x00000000000032f8        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x00000000000032f8                PA2_DefaultInterruptHandler
+                0x00000000000031ec        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031ec                PA2_DefaultInterruptHandler
 
 .text.PA1_DefaultInterruptHandler
-                0x00000000000032fa        0x2
+                0x00000000000031ee        0x2
  .text.PA1_DefaultInterruptHandler
-                0x00000000000032fa        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x00000000000032fa                PA1_DefaultInterruptHandler
+                0x00000000000031ee        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031ee                PA1_DefaultInterruptHandler
 
 .text.PB3_DefaultInterruptHandler
-                0x00000000000032fc        0x2
+                0x00000000000031f0        0x2
  .text.PB3_DefaultInterruptHandler
-                0x00000000000032fc        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x00000000000032fc                PB3_DefaultInterruptHandler
+                0x00000000000031f0        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031f0                PB3_DefaultInterruptHandler
 
 .text.PB2_DefaultInterruptHandler
-                0x00000000000032fe        0x2
+                0x00000000000031f2        0x2
  .text.PB2_DefaultInterruptHandler
-                0x00000000000032fe        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x00000000000032fe                PB2_DefaultInterruptHandler
+                0x00000000000031f2        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031f2                PB2_DefaultInterruptHandler
 
 .text.PC1_DefaultInterruptHandler
-                0x0000000000003300        0x2
+                0x00000000000031f4        0x2
  .text.PC1_DefaultInterruptHandler
-                0x0000000000003300        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x0000000000003300                PC1_DefaultInterruptHandler
+                0x00000000000031f4        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031f4                PC1_DefaultInterruptHandler
 
 .text.PA3_DefaultInterruptHandler
-                0x0000000000003302        0x2
+                0x00000000000031f6        0x2
  .text.PA3_DefaultInterruptHandler
-                0x0000000000003302        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x0000000000003302                PA3_DefaultInterruptHandler
+                0x00000000000031f6        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031f6                PA3_DefaultInterruptHandler
 
 .text.PB5_DefaultInterruptHandler
-                0x0000000000003304        0x2
+                0x00000000000031f8        0x2
  .text.PB5_DefaultInterruptHandler
-                0x0000000000003304        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x0000000000003304                PB5_DefaultInterruptHandler
+                0x00000000000031f8        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031f8                PB5_DefaultInterruptHandler
 
 .text.PC0_DefaultInterruptHandler
-                0x0000000000003306        0x2
+                0x00000000000031fa        0x2
  .text.PC0_DefaultInterruptHandler
-                0x0000000000003306        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x0000000000003306                PC0_DefaultInterruptHandler
+                0x00000000000031fa        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031fa                PC0_DefaultInterruptHandler
 
 .text.PC2_DefaultInterruptHandler
-                0x0000000000003308        0x2
+                0x00000000000031fc        0x2
  .text.PC2_DefaultInterruptHandler
-                0x0000000000003308        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x0000000000003308                PC2_DefaultInterruptHandler
+                0x00000000000031fc        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031fc                PC2_DefaultInterruptHandler
 
 .text.PC3_DefaultInterruptHandler
-                0x000000000000330a        0x2
+                0x00000000000031fe        0x2
  .text.PC3_DefaultInterruptHandler
-                0x000000000000330a        0x2 build/default/production/mcc_generated_files/system/src/pins.o
-                0x000000000000330a                PC3_DefaultInterruptHandler
+                0x00000000000031fe        0x2 build/default/production/mcc_generated_files/system/src/pins.o
+                0x00000000000031fe                PC3_DefaultInterruptHandler
 
 .text.USART0_DefaultFramingErrorCallback
-                0x000000000000330c        0x2
+                0x0000000000003200        0x2
  .text.USART0_DefaultFramingErrorCallback
-                0x000000000000330c        0x2 build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x0000000000003200        0x2 build/default/production/mcc_generated_files/uart/src/usart0.o
 
 .text.USART0_DefaultOverrunErrorCallback
-                0x000000000000330e        0x2
+                0x0000000000003202        0x2
  .text.USART0_DefaultOverrunErrorCallback
-                0x000000000000330e        0x2 build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x0000000000003202        0x2 build/default/production/mcc_generated_files/uart/src/usart0.o
 
 .text.USART0_DefaultParityErrorCallback
-                0x0000000000003310        0x2
+                0x0000000000003204        0x2
  .text.USART0_DefaultParityErrorCallback
-                0x0000000000003310        0x2 build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x0000000000003204        0x2 build/default/production/mcc_generated_files/uart/src/usart0.o
 
 .text.USART1_DefaultFramingErrorCallback
-                0x0000000000003312        0x2
+                0x0000000000003206        0x2
  .text.USART1_DefaultFramingErrorCallback
-                0x0000000000003312        0x2 build/default/production/mcc_generated_files/uart/src/usart1.o
+                0x0000000000003206        0x2 build/default/production/mcc_generated_files/uart/src/usart1.o
 
 .text.USART1_DefaultOverrunErrorCallback
-                0x0000000000003314        0x2
+                0x0000000000003208        0x2
  .text.USART1_DefaultOverrunErrorCallback
-                0x0000000000003314        0x2 build/default/production/mcc_generated_files/uart/src/usart1.o
+                0x0000000000003208        0x2 build/default/production/mcc_generated_files/uart/src/usart1.o
 
 .text.USART1_DefaultParityErrorCallback
-                0x0000000000003316        0x2
+                0x000000000000320a        0x2
  .text.USART1_DefaultParityErrorCallback
-                0x0000000000003316        0x2 build/default/production/mcc_generated_files/uart/src/usart1.o
+                0x000000000000320a        0x2 build/default/production/mcc_generated_files/uart/src/usart1.o
 
 .data.USART0_stream
-                0x00000000008035b8        0xe load address 0x0000000000003318
+                0x00000000008036b1        0xe load address 0x000000000000320c
  .data.USART0_stream
-                0x00000000008035b8        0xe build/default/production/mcc_generated_files/uart/src/usart0.o
-                0x00000000008035b8                USART0_stream
+                0x00000000008036b1        0xe build/default/production/mcc_generated_files/uart/src/usart0.o
+                0x00000000008036b1                USART0_stream
