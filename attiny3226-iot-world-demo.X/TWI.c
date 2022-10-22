@@ -55,7 +55,7 @@ void TWI_initHost(void)
             TWI_ARBLOST_bm | TWI_BUSERR_bm | TWI_BUSSTATE_IDLE_gc;
     
     //Set for 100kHz from a 4MHz oscillator
-    TWI0.MBAUD = 15;
+    TWI0.MBAUD = 13;    // 15
     
     //[No ISRs] and Host Mode
     TWI0.MCTRLA = TWI_ENABLE_bm;

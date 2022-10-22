@@ -161,6 +161,7 @@ void Soil_Pulse(void)   {
 uint8_t getMoistureMeasurement() {
     Soil_Pulse();
     uint16_t val = ADC0_GetConversion(7);
+    printf("%u\r\n", val);
     return map(val);    
 }
 

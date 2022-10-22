@@ -35,6 +35,7 @@
 #include "mcc_generated_files/system/system.h"
 #include "state.h"
 #include <math.h>
+#include <util/delay.h>
 
 #define TOP_VALUE 0x007F
 #define SECSLEEP   60       // Length of time between measurements
@@ -56,6 +57,8 @@ int main(void)
     //Initialize the ATtiny1627
     SYSTEM_Initialize();
     
+    
+    
     //Baremetal Setup for State Machine
     PORT_init();
     EVSYS_init();
@@ -73,11 +76,17 @@ int main(void)
     //Initialize the Weather Click
     WeatherClick_initialize();
     
+    printf("resetting...\n");
+    
     LR2_PWR_SetLow();
      
     while(1)
     { 
-        stateMachine();  
+        stateMachine();
+        //getMoistureMeasurement();
+        //_delay_ms(60000);
+        //WeatherClick_readSensors();
+        //_delay_ms(1000);
     }
     return 0;
 }
@@ -97,6 +106,7 @@ void PORT_init(void)
     
     // Testing TCB1
     PORTA.DIR |= PIN6_bm;
+    PORTA.OUTSET |= PIN6_bm;        // Testing Power issue
     
 }
 
