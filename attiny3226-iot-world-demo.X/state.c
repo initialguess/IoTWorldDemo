@@ -52,6 +52,31 @@ char payload[17];
 //Data structure: measurements from Weather Click and moisture sensor
 static sensor_data_t data;
 
+// Lookup Table for Soil Moisture
+uint16_t lut[42] = {
+    2019, 100,
+    2020, 95,
+    2029, 90,
+    2044, 85,
+    2067, 80,
+    2097, 75,
+    2134, 70, 
+    2178, 65,
+    2230, 60,
+    2288, 55,
+    2354, 50,
+    2426, 45,
+    2506, 40,
+    2593, 35,
+    2687, 30,
+    2788, 25,
+    2896, 20,
+    3011, 15,
+    3134, 10,
+    3263, 5,
+    3400, 0
+};
+
 
 // 1ms interrupt
 ISR(TCB0_INT_vect)  {
@@ -157,12 +182,27 @@ void Soil_Pulse(void)   {
     }
     
 }
+uint8_t lookup(uint16_t raw) {
+    uint16_t percent;
+    for(int i = 0; i < 40; i += 2)
+    {
+        if( (raw >= lut[i])  &&  (adc_read <= lut[i+2]))
+        {
+          percent = lut[i+1] - \
+                    ((lut[i+1] - lut[i+3]) * \
+                    (( raw - lut[i]) / (lut[i+2] - lut[i])) \
+                    );
+          break;
+        }
+    }
+    return (uint8_t) percent;
+}
 
 uint8_t getMoistureMeasurement() {
     Soil_Pulse();
     uint16_t val = ADC0_GetConversion(7);
     printf("%u\r\n", val);
-    return map(val);    
+    return lookup(val);    
 }
 
 uint8_t getSoilTemp()   {
