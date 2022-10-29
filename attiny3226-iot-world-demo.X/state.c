@@ -15,11 +15,18 @@
 #define READ_INTERVAL 180;  //Time between sensor readings
 
 #define UI_BUTTON_FLAG              (1 << 0)
-#define TTN_JOIN_SUCCESS_FLAG       (1 << 1)
-#define TTN_JOIN_ERROR_FLAG         (1 << 2)
-#define TX_SUCCESS_FLAG             (1 << 3)
-#define TX_ERROR_FLAG               (1 << 4)
-#define SLEEP_TIMER_FLAG            (1 << 5)
+#define RN2903_CONFIGURED           (1 << 1)
+#define TTN_JOIN_SUCCESS_FLAG       (1 << 2)
+#define TTN_JOIN_ERROR_FLAG         (1 << 3)
+#define TX_SUCCESS_FLAG             (1 << 4)
+#define TX_ERROR_FLAG               (1 << 5)
+#define SLEEP_TIMER_FLAG            (1 << 6)
+
+// defines for Soil Moisure LUT
+#define LUT_TABLESIZE 42    // number of elements in lookup table (in pairs of ADC read and %)
+#define LUT_MIN 2019        // corresponds to 100% soil moisture
+#define LUT_MAX 3400        // corresponds to 0% soil moisture
+#define LUT_STEPSIZE 5      // steps between soil moisture percentage
 
 typedef enum    {
     TTN_NOT_JOINED,
@@ -52,8 +59,12 @@ char payload[17];
 //Data structure: measurements from Weather Click and moisture sensor
 static sensor_data_t data;
 
+// static because we dont want to allocate and initialize on the stack every time the associated function is called
+// const because we dont ever want to write to the table, this will catch accidental writes to the table
+// __flash because we dont want to copy the table into ram every time we use it, we only have 3KB SRAM
 // Lookup Table for Soil Moisture
-uint16_t lut[42] = {
+// keep table 
+static const __flash uint16_t lut[LUT_TABLESIZE] = {
     2019, 100,
     2020, 95,
     2029, 90,
@@ -183,19 +194,28 @@ void Soil_Pulse(void)   {
     
 }
 uint8_t lookup(uint16_t raw) {
-    uint16_t percent;
-    for(int i = 0; i < 40; i += 2)
-    {
-        if( (raw >= lut[i])  &&  (adc_read <= lut[i+2]))
-        {
-          percent = lut[i+1] - \
-                    ((lut[i+1] - lut[i+3]) * \
-                    (( raw - lut[i]) / (lut[i+2] - lut[i])) \
-                    );
-          break;
+    
+    // catch any ADC reads outside of specified bounds
+    if (raw < LUT_MIN) return 100;  // 100% soil moisture
+    else if (raw > LUT_MAX) return 0;   // 0% soil moisture
+    
+    else    {
+        uint8_t i = 0;
+        // iterate through LUT ADC values until we find entry larger than our raw ADC read
+        while (lut[i] < raw)    {
+            i+=2;
         }
+        // calculate the scale (or percentage) of how big the ADC value is compared to the steps between LUT values
+        // the 1.0 is because we are counting ADC values UP as we go through the lookup table, but DOWN as we go though soil moisture %
+        float scale = 1.0 - ((float)(raw - lut[i-2]) / (float)(lut[i] - lut[i-2]));
+        // calculate percent based on how far our ADC read is between LUT steps and the lower bound of the soil moisture percentage
+        float percent = lut[i+1] + (scale * LUT_STEPSIZE);
+        // convert to int for simplicity
+        uint8_t soil_moist_percent = (int)round(percent);
+        //printf("Soil Moisture Int: %d%%\n", soil_moist_percent);
+        return soil_moist_percent;
     }
-    return (uint8_t) percent;
+    
 }
 
 uint8_t getMoistureMeasurement() {
@@ -211,8 +231,8 @@ uint8_t getSoilTemp()   {
 }
 
 uint8_t getBatteryLevel()   {
-    //For Testing Purposes loses 1% every 10 Tx's TODO: create better calculation
-    uint16_t level = 100 - (numTx / 10); 
+    //For Testing Purposes loses 1% every 1000 Tx's
+    uint16_t level = 100 - (numTx / 1000); 
     return level;
 }
 
@@ -328,6 +348,7 @@ void stateMachine()
                 
                 //Send Join Request
                 LR2_join();
+                event_flags |= TTN_JOIN_SUCCESS_FLAG;
                 
                 state = TTN_JOIN_REQUEST; 
                  
@@ -335,6 +356,7 @@ void stateMachine()
                 
             case TTN_JOIN_REQUEST:
                 state = SEND_DATA;
+                LED0_Toggle();
                 break;
                 
             case TTN_JOINED:
@@ -352,7 +374,15 @@ void stateMachine()
         }
         event_flags &= ~UI_BUTTON_FLAG;
     }
-   
+
+    
+    //Toggle LED when RN2903 has successfully joined 
+    if(event_flags & TTN_JOIN_SUCCESS_FLAG) {
+        LED0_Toggle();
+        event_flags &= ~TTN_JOIN_SUCCESS_FLAG;
+    }
+    
+    
     switch(state) {
         case TTN_JOIN_REQUEST:
             
@@ -444,9 +474,3 @@ void stateMachine()
     }
 
 }
-
-
-
-
-
-
