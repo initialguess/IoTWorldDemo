@@ -46,7 +46,7 @@ typedef struct
     uint16_t press;      // Pressure           Weather Click
     uint8_t moist;       // Soil Moisture      ADCC
     uint8_t battery;     // Battery Level
-    uint8_t numTx;       // LoRa Tx Number     
+    uint16_t numTx;       // LoRa Tx Number     
 
 } sensor_data_t;
 

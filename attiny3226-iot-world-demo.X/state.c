@@ -54,7 +54,7 @@ uint32_t lastsecs = 0;          // reference to determine total elapsed time in 
 uint16_t numTx = 0;
 
 //LR2 payload for TTN - String of hex characters representing sensor data
-char payload[17];
+char payload[19];
 
 //Data structure: measurements from Weather Click and moisture sensor
 static sensor_data_t data;
@@ -299,11 +299,13 @@ void formatPayload(char *str, sensor_data_t *data) {
     str[9] = hex[data->press & 0x0F];
     str[10] = hex[((data->battery >> 4) & 0x0F)];
     str[11] = hex[data->battery & 0x0F];
-    str[12] = hex[((data->numTx >> 4) & 0x0F)];
-    str[13] = hex[data->numTx & 0x0F];
-    str[14] = '\r';
-    str[15] = '\n';
-    str[16] = '\0';
+    str[12] = hex[((data->numTx >> 12) & 0x0F)];
+    str[13] = hex[((data->numTx >> 8) & 0x0F)];
+    str[14] = hex[((data->numTx >> 4) & 0x0F)];
+    str[15] = hex[data->numTx & 0x0F];
+    str[16] = '\r';
+    str[17] = '\n';
+    str[18] = '\0';
 }
 void sendAndReceiveBuffers() {
         if(TERM__IsRxReady()) {
@@ -356,7 +358,7 @@ void stateMachine()
                 
             case TTN_JOIN_REQUEST:
                 state = SEND_DATA;
-                LED0_Toggle();
+                LED0_SetHigh();
                 break;
                 
             case TTN_JOINED:
@@ -374,11 +376,10 @@ void stateMachine()
         }
         event_flags &= ~UI_BUTTON_FLAG;
     }
-
     
     //Toggle LED when RN2903 has successfully joined 
     if(event_flags & TTN_JOIN_SUCCESS_FLAG) {
-        LED0_Toggle();
+        LED0_SetLow();
         event_flags &= ~TTN_JOIN_SUCCESS_FLAG;
     }
     
@@ -399,6 +400,8 @@ void stateMachine()
         // is sent as confirmed, otherwise send as unconfirmed, After transmitting,
         // start a timer     
         case SEND_DATA:
+            //Turn on LED to signal SEND DATA start
+            //LED0_SetHigh();
             //Gather and format sensor data for transmission
             getSensorData(&data);
             formatPayload(payload, &data);
@@ -413,6 +416,7 @@ void stateMachine()
             //Advance Transmission Count
             numTx++;
             
+            
             //Start the Timer
             RTC.CTRLA |= RTC_RTCEN_bm;
             state = SLEEP;
@@ -420,6 +424,9 @@ void stateMachine()
         //Wait for mac_tx_ok, then go to sleep/ enter low power mode 
         //TODO: parse LR2 messages, if mac_tx_ok, sleep, otherwise handle error
         case SLEEP:
+//            if(secs == 2) {
+//                LED0_SetLow();
+//            }
             // Put the RN2903 to sleep to save power for 120 sec
 //            if(secs == 30)   {
 //                LR2_tx_buff_Push_Str("sys sleep 120000\r\n");
