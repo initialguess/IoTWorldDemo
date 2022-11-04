@@ -83,10 +83,6 @@ int main(void)
     while(1)
     { 
         stateMachine();
-        //getMoistureMeasurement();
-        //_delay_ms(60000);
-        //WeatherClick_readSensors();
-        //_delay_ms(1000);
     }
     return 0;
 }

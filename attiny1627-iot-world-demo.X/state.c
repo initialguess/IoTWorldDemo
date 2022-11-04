@@ -144,11 +144,6 @@ uint8_t getMoistureMeasurement() {
     return map(val);    
 }
 
-uint8_t getSoilTemp()   {
-    uint8_t temp = BME280_getTemperature() - 5;
-    return temp;
-}
-
 uint8_t getBatteryLevel()   {
     //For Testing Purposes loses 1% every 10 Tx's TODO: create better calculation
     uint16_t level = 100 - (numTx / 10); 

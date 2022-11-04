@@ -41,7 +41,7 @@
 
 void PORT_init(void);
 void EVSYS_init(void);
-void TCB0_init(void);
+void TCB_init(void);
 void Init_PIT(void);
     
 int main(void)
@@ -50,9 +50,10 @@ int main(void)
     SYSTEM_Initialize();
     
     //Baremetal Setup for State Machine
+    //The attiny3236 version also includes ADC (for soil probe and battery) and TCA (for PWM))
     PORT_init();
     EVSYS_init();
-    TCB0_init();
+    TCB_init();
     Init_PIT();
     
     sei();
@@ -88,7 +89,7 @@ void EVSYS_init(void)
     EVSYS.USERTCB1CAPT = EVSYS_USER_CHANNEL3_gc;
 }
 
-void TCB0_init(void)
+void TCB_init(void)
 {
     //For 1 ms Timer
     TCB0.CCMP = 10000;  // 10MHz / 1kHz = 20000

@@ -260,8 +260,6 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 build/default/production/state.o
  .text.printRawValues
                 0x0000000000000000       0xbe build/default/production/state.o
- .text.getSoilTemp
-                0x0000000000000000       0x18 build/default/production/state.o
  .bss.lastsecs  0x0000000000000000        0x4 build/default/production/state.o
  .bss.label_initial
                 0x0000000000000000        0x1 build/default/production/state.o
@@ -1026,7 +1024,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x6a0
+.debug_aranges  0x0000000000000000      0x698
  *(.debug_aranges)
  .debug_aranges
                 0x0000000000000000       0xb8 build/default/production/mcc_generated_files/adc/src/adc0.o
@@ -1055,18 +1053,18 @@ END GROUP
  .debug_aranges
                 0x0000000000000450       0x90 build/default/production/bme280.o
  .debug_aranges
-                0x00000000000004e0       0xa0 build/default/production/state.o
+                0x00000000000004e0       0x98 build/default/production/state.o
  .debug_aranges
-                0x0000000000000580       0x80 build/default/production/lr2.o
+                0x0000000000000578       0x80 build/default/production/lr2.o
  .debug_aranges
-                0x0000000000000600       0x40 build/default/production/LR2_ringBuffer.o
+                0x00000000000005f8       0x40 build/default/production/LR2_ringBuffer.o
  .debug_aranges
-                0x0000000000000640       0x60 build/default/production/TERM_ringBuffer.o
+                0x0000000000000638       0x60 build/default/production/TERM_ringBuffer.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0xcd03
+.debug_info     0x0000000000000000     0xccc4
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000     0x1b97 C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny1627.o
  .debug_info    0x0000000000001b97      0xfa7 build/default/production/mcc_generated_files/adc/src/adc0.o
@@ -1079,15 +1077,15 @@ END GROUP
  .debug_info    0x0000000000004ce4      0xed1 build/default/production/mcc_generated_files/uart/src/usart0.o
  .debug_info    0x0000000000005bb5      0xd18 build/default/production/mcc_generated_files/uart/src/usart1.o
  .debug_info    0x00000000000068cd      0x31b build/default/production/mcc_generated_files/vref/src/vref.o
- .debug_info    0x0000000000006be8     0x17f3 build/default/production/main.o
- .debug_info    0x00000000000083db      0xb33 build/default/production/TWI.o
- .debug_info    0x0000000000008f0e      0xce1 build/default/production/bme280.o
- .debug_info    0x0000000000009bef     0x1661 build/default/production/state.o
- .debug_info    0x000000000000b250      0xfe5 build/default/production/lr2.o
- .debug_info    0x000000000000c235      0x3cc build/default/production/LR2_ringBuffer.o
- .debug_info    0x000000000000c601      0x702 build/default/production/TERM_ringBuffer.o
+ .debug_info    0x0000000000006be8     0x17f2 build/default/production/main.o
+ .debug_info    0x00000000000083da      0xb33 build/default/production/TWI.o
+ .debug_info    0x0000000000008f0d      0xce1 build/default/production/bme280.o
+ .debug_info    0x0000000000009bee     0x1623 build/default/production/state.o
+ .debug_info    0x000000000000b211      0xfe5 build/default/production/lr2.o
+ .debug_info    0x000000000000c1f6      0x3cc build/default/production/LR2_ringBuffer.o
+ .debug_info    0x000000000000c5c2      0x702 build/default/production/TERM_ringBuffer.o
 
-.debug_abbrev   0x0000000000000000     0x31d9
+.debug_abbrev   0x0000000000000000     0x31a7
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000     0x1a20 C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny1627.o
  .debug_abbrev  0x0000000000001a20      0x21a build/default/production/mcc_generated_files/adc/src/adc0.o
@@ -1103,12 +1101,12 @@ END GROUP
  .debug_abbrev  0x000000000000267d      0x182 build/default/production/main.o
  .debug_abbrev  0x00000000000027ff      0x191 build/default/production/TWI.o
  .debug_abbrev  0x0000000000002990      0x193 build/default/production/bme280.o
- .debug_abbrev  0x0000000000002b23      0x30d build/default/production/state.o
- .debug_abbrev  0x0000000000002e30      0x14c build/default/production/lr2.o
- .debug_abbrev  0x0000000000002f7c       0xda build/default/production/LR2_ringBuffer.o
- .debug_abbrev  0x0000000000003056      0x183 build/default/production/TERM_ringBuffer.o
+ .debug_abbrev  0x0000000000002b23      0x2db build/default/production/state.o
+ .debug_abbrev  0x0000000000002dfe      0x14c build/default/production/lr2.o
+ .debug_abbrev  0x0000000000002f4a       0xda build/default/production/LR2_ringBuffer.o
+ .debug_abbrev  0x0000000000003024      0x183 build/default/production/TERM_ringBuffer.o
 
-.debug_line     0x0000000000000000     0x3166
+.debug_line     0x0000000000000000     0x3143
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x14b C:/Users/C70348/.mchp_packs/Microchip/ATtiny_DFP/3.0.151/xc8/avr/lib/avrxmega3/crtattiny1627.o
  .debug_line    0x000000000000014b      0x3c8 build/default/production/mcc_generated_files/adc/src/adc0.o
@@ -1124,12 +1122,12 @@ END GROUP
  .debug_line    0x00000000000018a0      0x211 build/default/production/main.o
  .debug_line    0x0000000000001ab1      0x3bd build/default/production/TWI.o
  .debug_line    0x0000000000001e6e      0x3b0 build/default/production/bme280.o
- .debug_line    0x000000000000221e      0x600 build/default/production/state.o
- .debug_line    0x000000000000281e      0x51c build/default/production/lr2.o
- .debug_line    0x0000000000002d3a      0x149 build/default/production/LR2_ringBuffer.o
- .debug_line    0x0000000000002e83      0x2e3 build/default/production/TERM_ringBuffer.o
+ .debug_line    0x000000000000221e      0x5dd build/default/production/state.o
+ .debug_line    0x00000000000027fb      0x51c build/default/production/lr2.o
+ .debug_line    0x0000000000002d17      0x149 build/default/production/LR2_ringBuffer.o
+ .debug_line    0x0000000000002e60      0x2e3 build/default/production/TERM_ringBuffer.o
 
-.debug_frame    0x0000000000000000     0x1054
+.debug_frame    0x0000000000000000     0x1044
  *(.debug_frame)
  .debug_frame   0x0000000000000000      0x190 build/default/production/mcc_generated_files/adc/src/adc0.o
  .debug_frame   0x0000000000000190       0x24 build/default/production/mcc_generated_files/system/src/clock.o
@@ -1142,10 +1140,10 @@ END GROUP
  .debug_frame   0x0000000000000718       0x64 build/default/production/main.o
  .debug_frame   0x000000000000077c      0x12c build/default/production/TWI.o
  .debug_frame   0x00000000000008a8      0x238 build/default/production/bme280.o
- .debug_frame   0x0000000000000ae0      0x2ac build/default/production/state.o
- .debug_frame   0x0000000000000d8c      0x160 build/default/production/lr2.o
- .debug_frame   0x0000000000000eec       0x74 build/default/production/LR2_ringBuffer.o
- .debug_frame   0x0000000000000f60       0xf4 build/default/production/TERM_ringBuffer.o
+ .debug_frame   0x0000000000000ae0      0x29c build/default/production/state.o
+ .debug_frame   0x0000000000000d7c      0x160 build/default/production/lr2.o
+ .debug_frame   0x0000000000000edc       0x74 build/default/production/LR2_ringBuffer.o
+ .debug_frame   0x0000000000000f50       0xf4 build/default/production/TERM_ringBuffer.o
 
 .debug_str      0x0000000000000000     0x10c8
  *(.debug_str)
@@ -1167,7 +1165,7 @@ END GROUP
  .debug_str     0x00000000000010a7        0x0 build/default/production/LR2_ringBuffer.o
  .debug_str     0x00000000000010a7       0x21 build/default/production/TERM_ringBuffer.o
 
-.debug_loc      0x0000000000000000     0x18a8
+.debug_loc      0x0000000000000000     0x1883
  *(.debug_loc)
  .debug_loc     0x0000000000000000      0x12e build/default/production/mcc_generated_files/adc/src/adc0.o
  .debug_loc     0x000000000000012e      0x11f build/default/production/mcc_generated_files/system/src/clock.o
@@ -1175,10 +1173,10 @@ END GROUP
  .debug_loc     0x0000000000000277       0x64 build/default/production/mcc_generated_files/uart/src/usart0.o
  .debug_loc     0x00000000000002db      0x496 build/default/production/TWI.o
  .debug_loc     0x0000000000000771      0x76f build/default/production/bme280.o
- .debug_loc     0x0000000000000ee0      0x214 build/default/production/state.o
- .debug_loc     0x00000000000010f4      0x574 build/default/production/lr2.o
- .debug_loc     0x0000000000001668       0x7c build/default/production/LR2_ringBuffer.o
- .debug_loc     0x00000000000016e4      0x1c4 build/default/production/TERM_ringBuffer.o
+ .debug_loc     0x0000000000000ee0      0x1ef build/default/production/state.o
+ .debug_loc     0x00000000000010cf      0x574 build/default/production/lr2.o
+ .debug_loc     0x0000000000001643       0x7c build/default/production/LR2_ringBuffer.o
+ .debug_loc     0x00000000000016bf      0x1c4 build/default/production/TERM_ringBuffer.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1198,7 +1196,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000      0x578
+.debug_ranges   0x0000000000000000      0x570
  *(.debug_ranges)
  .debug_ranges  0x0000000000000000       0xa8 build/default/production/mcc_generated_files/adc/src/adc0.o
  .debug_ranges  0x00000000000000a8       0x10 build/default/production/mcc_generated_files/system/src/clock.o
@@ -1211,10 +1209,10 @@ END GROUP
  .debug_ranges  0x00000000000002e8       0x30 build/default/production/main.o
  .debug_ranges  0x0000000000000318       0x60 build/default/production/TWI.o
  .debug_ranges  0x0000000000000378       0x80 build/default/production/bme280.o
- .debug_ranges  0x00000000000003f8       0x90 build/default/production/state.o
- .debug_ranges  0x0000000000000488       0x70 build/default/production/lr2.o
- .debug_ranges  0x00000000000004f8       0x30 build/default/production/LR2_ringBuffer.o
- .debug_ranges  0x0000000000000528       0x50 build/default/production/TERM_ringBuffer.o
+ .debug_ranges  0x00000000000003f8       0x88 build/default/production/state.o
+ .debug_ranges  0x0000000000000480       0x70 build/default/production/lr2.o
+ .debug_ranges  0x00000000000004f0       0x30 build/default/production/LR2_ringBuffer.o
+ .debug_ranges  0x0000000000000520       0x50 build/default/production/TERM_ringBuffer.o
 
 .debug_macro
  *(.debug_macro)
@@ -1649,11 +1647,10 @@ LOAD data_init
                 0x0000000000002a08       0x38 build/default/production/lr2.o
                 0x0000000000002a08                LR2_tx_uncnf
 
-.text.TCB0_init
-                0x0000000000002a40       0x36
- .text.TCB0_init
+.text.TCB_init  0x0000000000002a40       0x36
+ .text.TCB_init
                 0x0000000000002a40       0x36 build/default/production/main.o
-                0x0000000000002a40                TCB0_init
+                0x0000000000002a40                TCB_init
 
 .text.WeatherClick_initialize
                 0x0000000000002a76       0x36
