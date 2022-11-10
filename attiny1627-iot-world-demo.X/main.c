@@ -64,6 +64,8 @@ int main(void)
     //Initialize the Weather Click
     WeatherClick_initialize();
     
+    //Turn on LED (Active Low) Initialization Complete
+    PORTB.OUT &= ~PIN7_bm;
     
     while(1)
     { 
@@ -76,6 +78,8 @@ void PORT_init(void)
 {
     //Set Up LED
     PORTB.DIR |= PIN7_bm;
+    
+    //Ensure LED Off to Start
     PORTB.OUT |= PIN7_bm;
     
     //Set Up Switch 0

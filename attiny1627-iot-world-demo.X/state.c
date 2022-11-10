@@ -236,14 +236,16 @@ void sendAndReceiveBuffers() {
 
 void BUTTON_releaseCallback(void)
 {
-    PORTB.OUTSET |= PIN7_bm;
+    //Turn off LED (Active Low)
+    PORTB.OUT |= PIN7_bm;
     
     event_flags |= UI_BUTTON_FLAG;
 }
 
 void BUTTON_pressCallback(void)
-{
-    PORTB.OUTSET &= ~PIN7_bm;   
+{   
+    //Turn on LED
+    PORTB.OUT &= ~PIN7_bm;   
 }
 
 
@@ -263,12 +265,16 @@ void stateMachine()
                 //Send Join Request
                 LR2_join();
                 
-                state = TTN_JOIN_REQUEST; 
+                state = TTN_JOIN_REQUEST;
+                
+                //Turn on LED Indicating TTN Joined
+                PORTB.OUT &= ~PIN7_bm;
                  
                 break;
                 
             case TTN_JOIN_REQUEST:
                 state = SEND_DATA;
+                PORTB.OUT |= PIN7_bm;
                 break;
                 
             case TTN_JOINED:
@@ -285,18 +291,15 @@ void stateMachine()
         case TTN_JOIN_REQUEST:
             
             sendAndReceiveBuffers();
-            //TODO: Handle Join Errors
-//            if(Buffer_find("accepted\r\n")) {
-//                TERM_sendStringRaw("Rx: accepted\n");
-//            }
-            //For now automatically continues without checking for join errors
-            
             break;
             
         //Read measurements, prepare payload for TTN, every 10th payload is
         // is sent as confirmed, otherwise send as unconfirmed, After transmitting,
         // start a timer     
         case SEND_DATA:
+            //Turn on LED Beginning Send Data Sequence
+            PORTB.OUT &= ~PIN7_bm;
+            
             //Gather and format sensor data for transmission
             getSensorData(&data);
             formatPayload(payload, &data);
@@ -308,6 +311,9 @@ void stateMachine()
             }
             //Advance Transmission Count
             numTx++;
+            
+            //Turn off LED Send Data Complete
+            PORTB.OUT |= PIN7_bm;
             
             //Start the Timer
             RTC.CTRLA |= RTC_RTCEN_bm;
