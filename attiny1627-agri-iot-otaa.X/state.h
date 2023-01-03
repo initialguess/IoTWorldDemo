@@ -24,7 +24,7 @@ extern "C" {
 #include "lr2.h"
 #include "LR2_ringBuffer.h"
 #include "TERM_ringBuffer.h"
-//#include "ERROR.h"
+#include "state.h"
     
 #define CONVERSION_PERCENT 0.0625
 #define IN_MAX 2791 //3064          
